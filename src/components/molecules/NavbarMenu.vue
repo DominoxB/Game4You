@@ -5,7 +5,9 @@
       <span class="p-3 border-b-2 border-solid border-transparent hover:bg-gray-700 hover:border-b-pink-900 text-md">O
         nas</span>
     </div>
-    <HomeLogo />
+    <router-link to="/">
+      <HomeLogo />
+    </router-link>
     <div class="flex p-3 items-center text-md text-white font-kanit space-x-8 mt-8 cursor-pointer uppercase text-md">
       <span
         class="p-3 border-b-2 border-solid border-transparent hover:bg-gray-700 hover:border-b-pink-900">Współpraca</span>
@@ -29,11 +31,13 @@ export default {
     const games = [
       {
         id: 1,
-        title: 'Memory Game'
+        title: 'Memory Game',
+        url: '/MemoryPage'
       },
       {
         id: 2,
-        title: 'Kółko i krzyżyk'
+        title: 'Kółko i krzyżyk',
+        url: '/TicTacToePage'
       },
     ]
     return {

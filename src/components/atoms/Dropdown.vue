@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div 
-      class="flex py-3 px-2 border-b-2 border-solid border-transparent hover:bg-gray-700 hover:border-b-pink-900"
+    <div class="flex py-3 px-2 border-b-2 border-solid border-transparent hover:bg-gray-700 hover:border-b-pink-900"
       @click="isOpen = !isOpen">
       <span>{{ title }}</span>
       <svg viewBox="0 0 1030 638" width="10" class="flex ml-5">
@@ -9,12 +8,14 @@
         </path>
       </svg>
     </div>
-      <div v-if="isOpen" class="absolute bg-gray-800 rounded-b-2xl">
-        <div v-for="(item, i) in items" :key="i"
-          class="p-2 border-b-2 border-solid border-transparent hover:bg-gray-700 normal-case hover:border-b-pink-900">
-          <span>{{ item.title }}</span>
-        </div>
+    <div v-if="isOpen" class="absolute bg-gray-800 rounded-b-2xl">
+      <div v-for="(item, i) in items" :key="i"
+        class="p-2 border-b-2 border-solid border-transparent hover:bg-gray-700 normal-case hover:border-b-pink-900">
+        <router-link :to="item.url">
+          <span @click="isOpen = !isOpen">{{ item.title }}</span>
+        </router-link>
       </div>
+    </div>
   </div>
 </template>
 
