@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div ref="dropdown">
     <div class="flex py-3 px-2 border-b-2 border-solid border-transparent hover:bg-gray-700 hover:border-b-pink-900"
       @click="isOpen = !isOpen">
       <span>{{ title }}</span>
@@ -21,6 +21,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import { onClickOutside } from '@vueuse/core'
 export default defineComponent({
   name: 'DropdownNavbar',
   props: {
@@ -35,8 +36,13 @@ export default defineComponent({
   },
   setup() {
     const isOpen = ref(false)
+    const dropdown = ref(null)
+    onClickOutside(dropdown, () => {
+      isOpen.value = false
+    })
     return {
-      isOpen
+      isOpen,
+      dropdown
     }
   }
 })
