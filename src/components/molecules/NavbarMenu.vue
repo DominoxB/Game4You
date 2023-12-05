@@ -17,11 +17,12 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import HomeLogo from '@/components/atoms/HomeLogo.vue'
 import Dropdown from '@/components/atoms/Dropdown.vue'
 
-export default {
+export default defineComponent({
   name: 'NavbarMenu',
   components: {
     HomeLogo,
@@ -44,5 +45,5 @@ export default {
       games
     }
   }
-}
+})
 </script>
