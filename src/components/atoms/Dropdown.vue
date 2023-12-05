@@ -19,9 +19,9 @@
   </div>
 </template>
 
-<script>
-import { ref } from 'vue'
-export default {
+<script lang="ts">
+import { defineComponent, ref } from 'vue'
+export default defineComponent({
   name: 'DropdownNavbar',
   props: {
     title: {
@@ -30,7 +30,7 @@ export default {
     },
     items: {
       type: Array,
-      required: true
+      required: true,
     }
   },
   setup() {
@@ -39,5 +39,5 @@ export default {
       isOpen
     }
   }
-}
+})
 </script>

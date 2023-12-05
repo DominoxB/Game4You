@@ -6,15 +6,15 @@
 </div>
 </template>
 
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import NavbarMenu from '@/components/molecules/NavbarMenu.vue'
-import FooterContent from './components/atoms/FooterContent.vue';
-
-export default {
+import FooterContent from './components/atoms/FooterContent.vue'
+export default defineComponent({
   name: 'App',
   components: {
     NavbarMenu,
     FooterContent
   }
-}
+})
 </script>
