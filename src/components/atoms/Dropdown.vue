@@ -1,6 +1,6 @@
 <template>
   <div ref="dropdown">
-    <div class="flex py-3 px-2 border-b-2 border-solid border-transparent hover:bg-gray-700 hover:border-b-pink-900"
+    <div class="flex p-2 border-b-2 border-solid border-transparent hover:border-b-pink-900"
       @click="isOpen = !isOpen">
       <span>{{ title }}</span>
       <svg viewBox="0 0 1030 638" width="10" class="flex ml-5">

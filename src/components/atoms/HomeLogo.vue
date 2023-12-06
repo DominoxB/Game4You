@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-12 bg-gray-900 px-3 flex items-center h-full">
-    <span class="text-4xl font-kanit text-white">Domino Games</span>
+  <div class="mx-12 bg-gray-900 flex items-center">
+    <span class="text-5xl font-kanit text-white">Game4You</span>
   </div>
 </template>
 
