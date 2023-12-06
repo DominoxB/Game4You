@@ -1,5 +1,5 @@
 <template>
-  <div class="h-screen bg-gray-900 my-auto">
+  <div class="bg-gray-900 my-auto">
     <div class="text-center mt-20 mx-80 pb-10 text-white">
       <span class="text-2xl font-dosis leading-10">Game4You to miejsce dla ludzi, którzy cenią sobie kultowe gry-klasyki.
         Sprawdź swoją pamięć, spróbuj szczęścia i znajdź wszystkie pary w grze pamięciowej Memory Doggy! A może wolisz zagrać w kółko i
