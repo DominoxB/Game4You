@@ -1,6 +1,6 @@
 <template>
   <div>
-    <CardItem />
+    <CardItem image="😍"/>
   </div>
 </template>
 
