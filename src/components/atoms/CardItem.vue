@@ -1,6 +1,6 @@
 <template>
   <div class="text-white border w-[120px] h-[120px] flex items-center justify-center" @click="isVisible = !isVisible">
-      <div v-if="isVisible">{{ image }}</div>
+    <div v-if="isVisible">{{ image }}</div>
   </div>
 </template>
 

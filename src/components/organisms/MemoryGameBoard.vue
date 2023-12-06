@@ -1,6 +1,6 @@
 <template>
   <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
-    <div v-for="card in cards" :key="card.id">
+    <div v-for="card in shuffledCards" :key="card.id">
       <CardItem :image="card.image" />
     </div>
   </div>
@@ -81,9 +81,12 @@ export default defineComponent({
         id: 16,
         image: '🍏'
       }
-    ]
+    ],
+    const shuffledCards = cards.sort(() => 0.5 - Math.random())
+
     return {
-      cards
+      cards,
+      shuffledCards
     }
   }
 })
