@@ -1,7 +1,10 @@
 <template>
-  <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
-    <div v-for="card in shuffledCards" :key="card.id">
-      <CardItem :image="card.image" />
+  <div>
+    <MemoryInfoBoard />
+    <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
+      <div v-for="card in shuffledCards" :key="card.id">
+        <CardItem :image="card.image" />
+      </div>
     </div>
   </div>
 </template>
@@ -9,11 +12,13 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import CardItem from '../atoms/CardItem.vue'
+import MemoryInfoBoard from '../atoms/MemoryInfoBoard.vue'
 
 export default defineComponent({
   name: 'MemoryGameBoard',
   components: {
-    CardItem
+    CardItem,
+    MemoryInfoBoard
   },
   setup() {
     const cards = [
@@ -81,9 +86,8 @@ export default defineComponent({
         id: 16,
         image: '🍏'
       }
-    ],
+    ]
     const shuffledCards = cards.sort(() => 0.5 - Math.random())
-
     return {
       cards,
       shuffledCards
