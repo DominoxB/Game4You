@@ -1,4 +1,4 @@
-# game-page
+# Game4You
 
 ## Project setup
 ```
