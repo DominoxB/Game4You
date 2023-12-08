@@ -1,24 +1,28 @@
 <template>
   <div>
     <MemoryInfoBoard />
+    <Timer v-if="!showBtn"/>
     <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
       <div v-for="card in shuffledCards" :key="card.id">
         <CardItem :image="card.image" />
       </div>
+      <button v-if="showBtn" class="text-white" @click="startGame">START</button>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 import CardItem from '../atoms/CardItem.vue'
 import MemoryInfoBoard from '../atoms/MemoryInfoBoard.vue'
+import Timer from '../atoms/Timer.vue'
 
 export default defineComponent({
   name: 'MemoryGameBoard',
   components: {
     CardItem,
-    MemoryInfoBoard
+    MemoryInfoBoard,
+    Timer
   },
   setup() {
     const cards = [
@@ -87,10 +91,16 @@ export default defineComponent({
         image: '🍏'
       }
     ]
+    const showBtn = ref(true)
     const shuffledCards = cards.sort(() => 0.5 - Math.random())
+    const startGame = () => {
+      showBtn.value = false
+    }
     return {
       cards,
-      shuffledCards
+      shuffledCards, 
+      startGame, 
+      showBtn
     }
   }
 })
