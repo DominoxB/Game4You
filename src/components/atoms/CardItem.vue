@@ -15,6 +15,10 @@ export default defineComponent({
     image: {
       type: String,
       required: true
+    },
+    visible: {
+      type: Boolean,
+      default: false
     }
   },
   setup() {
