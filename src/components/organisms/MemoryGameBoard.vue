@@ -1,7 +1,12 @@
 <template>
   <div>
-    <MemoryInfoBoard />
-    <Timer v-if="!showBtn"/>
+    <div v-if="showBtn" class="font-silk text-center text-5xl mb-24">
+      <span class="text-white bg-gradient-to-r from-sky-500 to-indigo-500">Memory Game</span>
+    </div>
+    <div v-else>
+      <MemoryInfoBoard />
+      <Timer v-if="!showBtn" class="mx-auto" />
+    </div>
     <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
       <div v-for="card in shuffledCards" :key="card.id">
         <CardItem :image="card.image" />
@@ -98,8 +103,8 @@ export default defineComponent({
     }
     return {
       cards,
-      shuffledCards, 
-      startGame, 
+      shuffledCards,
+      startGame,
       showBtn
     }
   }
