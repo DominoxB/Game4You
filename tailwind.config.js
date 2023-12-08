@@ -6,7 +6,8 @@ module.exports = {
       fontFamily: {
         dosis: ["Dosis", "sans-serif"],
         kanit: ["Kanit", "sans-serif"],
-        bebas: ['Bebas Neue', 'sans-serif']
+        bebas: ['Bebas Neue', 'sans-serif'],
+        silk: ['Silkscreen', 'sans-serif']
       },
     }
   },
