@@ -33,67 +33,67 @@ export default defineComponent({
     const cards = [
       {
         id: 1,
-        image: '🍓'
+        image: require('../images/happy.png')
       },
       {
         id: 2,
-        image: '🍋'
+        image: require('../images/happy.png')
       },
       {
         id: 3,
-        image: '🍑'
+        image: require('../images/dog.png')
       },
       {
         id: 4,
-        image: '🍒'
+        image: require('../images/dog.png')
       },
       {
         id: 5,
-        image: '🍊'
+        image: require('../images/doggy.png')
       },
       {
         id: 6,
-        image: '🍉'
+        image: require('../images/doggy.png')
       },
       {
         id: 7,
-        image: '🍭'
+        image: require('../images/shiba.png')
       },
       {
         id: 8,
-        image: '🍏'
+        image: require('../images/shiba.png')
       },
       {
         id: 9,
-        image: '🍓'
+        image: require('../images/golden-retriever.png')
       },
       {
         id: 10,
-        image: '🍋'
+        image: require('../images/golden-retriever.png')
       },
       {
         id: 11,
-        image: '🍑'
+        image: require('../images/dogs.png')
       },
       {
         id: 12,
-        image: '🍒'
+        image: require('../images/dogs.png')
       },
       {
         id: 13,
-        image: '🍊'
+        image: require('../images/bone.png')
       },
       {
         id: 14,
-        image: '🍉'
+        image: require('../images/bone.png')
       },
       {
         id: 15,
-        image: '🍭'
+        image: require('../images/pet.png')
       },
       {
         id: 16,
-        image: '🍏'
+        image: require('../images/pet.png')
       }
     ]
     const showBtn = ref(true)
