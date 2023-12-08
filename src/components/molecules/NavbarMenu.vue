@@ -33,12 +33,12 @@ export default defineComponent({
       {
         id: 1,
         title: 'Memory Game',
-        url: '/MemoryPage'
+        url: '/MemoryGame'
       },
       {
         id: 2,
         title: 'Kółko i krzyżyk',
-        url: '/TicTacToePage'
+        url: '/TicTacToeGame'
       },
     ]
     return {
