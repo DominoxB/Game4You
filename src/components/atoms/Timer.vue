@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center w-1/3 border border-indigo-600 py-2 text-lime-200 rounded-md my-5 bg-gradient-to-r from-sky-500 to-indigo-500">
+  <div class="flex justify-center items-center w-1/3 font-silk border border-indigo-600 py-2 text-lime-200 rounded-md my-5 bg-gradient-to-r from-sky-500 to-indigo-500">
     <span>{{ formatTime(timeElapsed) }}</span>
   </div>
 </template>

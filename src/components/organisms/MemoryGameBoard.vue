@@ -1,7 +1,8 @@
 <template>
   <div>
-    <div v-if="showBtn" class="font-silk text-center text-5xl mb-24">
-      <span class="text-white bg-gradient-to-r from-sky-500 to-indigo-500">Memory Game</span>
+    <div v-if="showBtn" class="font-silk text-center mb-11">
+      <div class="text-white text-5xl p-2 bg-gradient-to-r from-sky-500 to-indigo-500">Memory Game</div>
+      <button class="border p-1 text-white text-3xl mt-4" @click="startGame">START</button>
     </div>
     <div v-else>
       <MemoryInfoBoard />
@@ -11,7 +12,6 @@
       <div v-for="card in shuffledCards" :key="card.id">
         <CardItem :image="card.image" />
       </div>
-      <button v-if="showBtn" class="text-white" @click="startGame">START</button>
     </div>
   </div>
 </template>
