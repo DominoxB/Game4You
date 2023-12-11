@@ -18,9 +18,11 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import { storeToRefs } from 'pinia'
 import CardItem from '../atoms/CardItem.vue'
 import MemoryInfoBoard from '../atoms/MemoryInfoBoard.vue'
 import Timer from '../atoms/Timer.vue'
+import { useMemoryCardsStore } from '@/stores/memoryCardsStore'
 
 export default defineComponent({
   name: 'MemoryGameBoard',
@@ -30,90 +32,10 @@ export default defineComponent({
     Timer
   },
   setup() {
-    const cards = [
-      {
-        id: 1,
-        image: require('../images/happy.png'),
-        name: 'Happy'
-      },
-      {
-        id: 2,
-        image: require('../images/happy.png'),
-        name: 'Happy'
-      },
-      {
-        id: 3,
-        image: require('../images/dog.png'),
-        name: 'Dog'
-      },
-      {
-        id: 4,
-        image: require('../images/dog.png'),
-        name: 'Dog'
-      },
-      {
-        id: 5,
-        image: require('../images/doggy.png'),
-        name: 'Doggy'
-      },
-      {
-        id: 6,
-        image: require('../images/doggy.png'),
-        name: 'Doggy'
-      },
-      {
-        id: 7,
-        image: require('../images/shiba.png'),
-        name: 'Shiba'
-      },
-      {
-        id: 8,
-        image: require('../images/shiba.png'),
-        name: 'Shiba'
-      },
-      {
-        id: 9,
-        image: require('../images/golden-retriever.png'),
-        name: 'Golden'
-      },
-      {
-        id: 10,
-        image: require('../images/golden-retriever.png'),
-        name: 'Golden'
-      },
-      {
-        id: 11,
-        image: require('../images/dogs.png'),
-        name: 'Dogs'
-      },
-      {
-        id: 12,
-        image: require('../images/dogs.png'),
-        name: 'Dogs'
-      },
-      {
-        id: 13,
-        image: require('../images/bone.png'),
-        name: 'Bone'
-      },
-      {
-        id: 14,
-        image: require('../images/bone.png'),
-        name: 'Bone'
-      },
-      {
-        id: 15,
-        image: require('../images/pet.png'),
-        name: 'Pet'
-      },
-      {
-        id: 16,
-        image: require('../images/pet.png'),
-        name: 'Pet'
-      }
-    ]
+    const cardsStore = useMemoryCardsStore()
+    const { cards } = storeToRefs(cardsStore)
     const showBtn = ref(true)
-    const shuffledCards = cards.sort(() => 0.5 - Math.random())
+    const shuffledCards = cards.value.sort(() => 0.5 - Math.random())
     const startGame = () => {
       showBtn.value = false
     }
