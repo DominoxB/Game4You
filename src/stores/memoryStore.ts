@@ -1,7 +1,7 @@
 import { defineStore } from "pinia";
 
 // API simulation (mocked data)
-export const useMemoryCardsStore = defineStore("MemoryCards", {
+export const useMemoryStore = defineStore("Memory", {
   state: () => {
     return {
       cards: [
@@ -85,7 +85,8 @@ export const useMemoryCardsStore = defineStore("MemoryCards", {
           image: require('../components/images/pet.png'),
           name: 'Pet'
         } 
-      ]
+      ],
+      selectedCards: {} as string
     }
   },
 })
