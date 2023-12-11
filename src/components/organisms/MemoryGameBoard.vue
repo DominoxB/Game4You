@@ -33,67 +33,83 @@ export default defineComponent({
     const cards = [
       {
         id: 1,
-        image: require('../images/happy.png')
+        image: require('../images/happy.png'),
+        name: 'Happy'
       },
       {
         id: 2,
-        image: require('../images/happy.png')
+        image: require('../images/happy.png'),
+        name: 'Happy'
       },
       {
         id: 3,
-        image: require('../images/dog.png')
+        image: require('../images/dog.png'),
+        name: 'Dog'
       },
       {
         id: 4,
-        image: require('../images/dog.png')
+        image: require('../images/dog.png'),
+        name: 'Dog'
       },
       {
         id: 5,
-        image: require('../images/doggy.png')
+        image: require('../images/doggy.png'),
+        name: 'Doggy'
       },
       {
         id: 6,
-        image: require('../images/doggy.png')
+        image: require('../images/doggy.png'),
+        name: 'Doggy'
       },
       {
         id: 7,
-        image: require('../images/shiba.png')
+        image: require('../images/shiba.png'),
+        name: 'Shiba'
       },
       {
         id: 8,
-        image: require('../images/shiba.png')
+        image: require('../images/shiba.png'),
+        name: 'Shiba'
       },
       {
         id: 9,
-        image: require('../images/golden-retriever.png')
+        image: require('../images/golden-retriever.png'),
+        name: 'Golden'
       },
       {
         id: 10,
-        image: require('../images/golden-retriever.png')
+        image: require('../images/golden-retriever.png'),
+        name: 'Golden'
       },
       {
         id: 11,
-        image: require('../images/dogs.png')
+        image: require('../images/dogs.png'),
+        name: 'Dogs'
       },
       {
         id: 12,
-        image: require('../images/dogs.png')
+        image: require('../images/dogs.png'),
+        name: 'Dogs'
       },
       {
         id: 13,
-        image: require('../images/bone.png')
+        image: require('../images/bone.png'),
+        name: 'Bone'
       },
       {
         id: 14,
-        image: require('../images/bone.png')
+        image: require('../images/bone.png'),
+        name: 'Bone'
       },
       {
         id: 15,
-        image: require('../images/pet.png')
+        image: require('../images/pet.png'),
+        name: 'Pet'
       },
       {
         id: 16,
-        image: require('../images/pet.png')
+        image: require('../images/pet.png'),
+        name: 'Pet'
       }
     ]
     const showBtn = ref(true)
