@@ -10,7 +10,7 @@
     </div>
     <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
       <div v-for="card in shuffledCards" :key="card.id">
-        <CardItem :image="card.image" />
+        <CardItem :card="card" />
       </div>
     </div>
   </div>
@@ -19,10 +19,10 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import { storeToRefs } from 'pinia'
+import { useMemoryStore } from '@/stores/memoryStore'
 import CardItem from '../atoms/CardItem.vue'
 import MemoryInfoBoard from '../atoms/MemoryInfoBoard.vue'
 import Timer from '../atoms/Timer.vue'
-import { useMemoryStore } from '@/stores/memoryStore'
 
 export default defineComponent({
   name: 'MemoryGameBoard',
