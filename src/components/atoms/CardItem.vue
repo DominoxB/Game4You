@@ -27,9 +27,11 @@ export default defineComponent({
 
 
     const clickCard = () => {
-      selectedCards.value.push(props.card.id)
-      isVisible.value = true     
-      console.log(selectedCards.value)
+      if (selectedCards.value.length < 2) {
+        selectedCards.value.push(props.card.id)
+        isVisible.value = true     
+        console.log(selectedCards.value)
+      }
     }
     return {
       isVisible,
