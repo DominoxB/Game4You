@@ -1,4 +1,5 @@
 # Game4You
+Game4You is an application with well-known and popular classic games: Memory and Tic-Tac-Toe.
 
 ## Project setup
 ```
