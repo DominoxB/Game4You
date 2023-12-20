@@ -1,16 +1,14 @@
 <template>
-  <div>
-    <CardItem />
+  <div class="text-white text-center mt-40">
+    Tu będzie plansza TicTacToe
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import CardItem from '@/components/atoms/CardItem.vue'
 export default defineComponent({
   name: 'TicTacToeGame',
   components: {
-    CardItem
   }
 })
 </script>
