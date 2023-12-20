@@ -3,9 +3,7 @@
     <div v-if="showBtn" class="font-silk text-center mb-8">
       <div class="text-white text-5xl p-2 bg-gradient-to-r from-sky-500 to-indigo-500">Memory Game</div>
       <button class="border p-1 text-white text-3xl my-8" @click="startGame">START</button>
-      <div class="w-[480px] h-[480px] border border-indigo-300 text-white text-center">
-        TU BĘDZIE JAKIEŚ IMAGE GRY
-      </div>
+      <img src="../images/memory.png" />
     </div>
     <div v-else>
       <MemoryInfoBoard />
