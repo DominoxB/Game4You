@@ -9,100 +9,85 @@ export const useMemoryStore = defineStore("Memory", {
           id: 1,
           image: require('../components/images/happy.png'),
           name: 'Happy',
-          visible: false
         },
         {
           id: 2,
           image: require('../components/images/happy.png'),
           name: 'Happy',
-          visible: false
         },
         {
           id: 3,
           image: require('../components/images/dog.png'),
-          name: 'Dog',
-          visible: false
+          name: 'Happy',
         },
         {
           id: 4,
           image: require('../components/images/dog.png'),
-          name: 'Dog',
-          visible: false
+          name: 'Happy',
         },
         {
           id: 5,
           image: require('../components/images/doggy.png'),
-          name: 'Doggy',
-          visible: false
+          name: 'Happy',
         },
         {
           id: 6,
           image: require('../components/images/doggy.png'),
-          name: 'Doggy',
-          visible: false
+          name: 'Happy',
         },
         {
           id: 7,
           image: require('../components/images/shiba.png'),
-          name: 'Shiba',
-          visible: false
+          name: 'Happy',
         },
         {
           id: 8,
           image: require('../components/images/shiba.png'),
-          name: 'Shiba',
-          visible: false
+          name: 'Happy',
         },
         {
           id: 9,
           image: require('../components/images/golden-retriever.png'),
-          name: 'Golden',
-          visible: false
+          name: 'Happy',
         },
         {
           id: 10,
           image: require('../components/images/golden-retriever.png'),
           name: 'Golden',
-          visible: false
         },
         {
           id: 11,
           image: require('../components/images/dogs.png'),
           name: 'Dogs',
-          visible: false
         },
         {
           id: 12,
           image: require('../components/images/dogs.png'),
           name: 'Dogs',
-          visible: false
         },
         {
           id: 13,
           image: require('../components/images/bone.png'),
           name: 'Bone',
-          visible: false
         },
         {
           id: 14,
           image: require('../components/images/bone.png'),
           name: 'Bone',
-          visible: false
         },
         {
           id: 15,
           image: require('../components/images/pet.png'),
           name: 'Pet',
-          visible: false
         },
         {
           id: 16,
           image: require('../components/images/pet.png'),
           name: 'Pet',
-          visible: false
         } 
       ],
-      selectedCards: [] as any
+      selectedCards: [] as any,
+      pairedCards: [] as any
     }
   },
 })
