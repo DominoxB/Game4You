@@ -21,9 +21,9 @@
 import { defineComponent, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useMemoryStore } from '@/stores/memoryStore'
-import CardItem from '../atoms/CardItem.vue'
-import MemoryInfoBoard from '../atoms/MemoryInfoBoard.vue'
-import Timer from '../atoms/Timer.vue'
+import CardItem from '@/components/atoms/CardItem.vue'
+import MemoryInfoBoard from '@/components/atoms/MemoryInfoBoard.vue'
+import Timer from '@/components/atoms/Timer.vue'
 
 export default defineComponent({
   name: 'MemoryGameBoard',
@@ -36,6 +36,7 @@ export default defineComponent({
     const cardsStore = useMemoryStore()
     const { cards, selectedCards, pairedCards } = storeToRefs(cardsStore)
     const showBtn = ref(true)
+    
     const shuffledCards = cards.value.sort(() => 0.5 - Math.random())
     const startGame = () => {
       showBtn.value = false
