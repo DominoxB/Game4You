@@ -36,7 +36,7 @@ export default defineComponent({
     const cardsStore = useMemoryStore()
     const { cards, selectedCards, pairedCards } = storeToRefs(cardsStore)
     const showBtn = ref(true)
-    
+
     const shuffledCards = cards.value.sort(() => 0.5 - Math.random())
     const startGame = () => {
       showBtn.value = false
@@ -58,7 +58,7 @@ export default defineComponent({
         } else {
           setTimeout(() => {
             selectedCards.value = []
-          }, 2000)
+          }, 1500)
         }
       }
       if (selectedCards.value.length > 1) {
