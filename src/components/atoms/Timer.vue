@@ -6,8 +6,7 @@
 
 
 <script lang="ts">
-import { onMounted } from "vue"
-import { defineComponent, ref } from "vue"
+import { defineComponent, ref, onMounted } from "vue"
 
 export default defineComponent({
   name: 'MemoryTimer',
