@@ -18,37 +18,37 @@ export const useMemoryStore = defineStore("Memory", {
         {
           id: 3,
           image: require('../components/images/dog.png'),
-          name: 'Happy',
+          name: 'Dog',
         },
         {
           id: 4,
           image: require('../components/images/dog.png'),
-          name: 'Happy',
+          name: 'Dog',
         },
         {
           id: 5,
           image: require('../components/images/doggy.png'),
-          name: 'Happy',
+          name: 'Doggy',
         },
         {
           id: 6,
           image: require('../components/images/doggy.png'),
-          name: 'Happy',
+          name: 'Doggy',
         },
         {
           id: 7,
           image: require('../components/images/shiba.png'),
-          name: 'Happy',
+          name: 'Shiba',
         },
         {
           id: 8,
           image: require('../components/images/shiba.png'),
-          name: 'Happy',
+          name: 'Shiba',
         },
         {
           id: 9,
           image: require('../components/images/golden-retriever.png'),
-          name: 'Happy',
+          name: 'Golden',
         },
         {
           id: 10,
