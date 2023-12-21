@@ -1,6 +1,6 @@
 <template>
   <div class="text-white border border-indigo-300 w-[120px] h-[120px] flex items-center justify-center"
-    @click="clickCard">
+    @click="$emit('clickCard', card)">
     <div v-if="isVisible">
       <img :src="card.image" alt="dog" />
     </div>
@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useMemoryStore } from '@/stores/memoryStore'
 
@@ -20,23 +20,20 @@ export default defineComponent({
       required: true
     }
   },
+  emits: ['clickCard'],
   setup(props) {
-    const isVisible = ref(false)
     const cardsStore = useMemoryStore()
-    const { selectedCards } = storeToRefs(cardsStore)
+    const { selectedCards, pairedCards } = storeToRefs(cardsStore)
+    const card = ref(props.card)
 
+    const isVisible = computed(() => {
+      return selectedCards.value.map((el: { id: number }) => el.id).includes(card.value.id) || pairedCards.value.map((el: { id: number }) => el.id).includes(card.value.id)
+    })
 
-    const clickCard = () => {
-      if (selectedCards.value.length < 2) {
-        selectedCards.value.push(props.card.id)
-        isVisible.value = true     
-        console.log(selectedCards.value)
-      }
-    }
     return {
       isVisible,
-      clickCard
     }
   }
 })
 </script>
+
