@@ -15,11 +15,11 @@
           </div>
             <p class="text-2xl">Gramy jeszcze raz?</p>
             <div class="flex justify-center mt-10">
-              <button @click="clickYes"
+              <button @click="$emit('clickYes')"
                 class="border border-indigo-300 hover:bg-blue-400 rounded text-center text-lg p-2 mr-10">
                 Tak
               </button>
-              <button @click="clickCancel"
+              <button @click="$emit('clickCancel')"
                 class="w-[136px] border border-indigo-300 hover:bg-blue-400 rounded text-center text-lg p-1">
                 Anuluj
               </button>
@@ -35,21 +35,13 @@ import { defineComponent, ref, onMounted } from 'vue'
 
 export default defineComponent({
   name: "ModalMemory",
-  emits: ['new-game', 'cancel-action'],
-  setup(props, context) {
-    const clickYes = () => {
-      context.emit('new-game')
-    }
-    const clickCancel = () => {
-      context.emit("cancel-action")
-    }
+  emits: ['clickYes', 'clickCancel'],
+  setup() {
     const audio = ref<HTMLAudioElement>();
     onMounted(() => {
       audio.value?.play()
     });
     return {
-      clickYes,
-      clickCancel,
       audio
     }
   }

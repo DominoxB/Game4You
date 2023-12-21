@@ -12,7 +12,7 @@
         <div v-for="card in shuffledCards" :key="card.id">
           <CardItem :card="card" @click-card="pickCard" />
         </div>
-        <ModalMemory v-if="pairedCards.length === 16" />
+        <ModalMemory v-if="showModal" @click-yes="newGame" @click-cancel="cancel" />
       </div>
     </div>
   </div>
@@ -26,6 +26,7 @@ import CardItem from '@/components/atoms/CardItem.vue'
 import MemoryInfoBoard from '@/components/atoms/MemoryInfoBoard.vue'
 import Timer from '@/components/atoms/Timer.vue'
 import ModalMemory from '@/components/atoms/ModalMemory.vue'
+import router from '@/router'
 
 export default defineComponent({
   name: 'MemoryGameBoard',
@@ -39,6 +40,7 @@ export default defineComponent({
     const cardsStore = useMemoryStore()
     const { cards, selectedCards, pairedCards } = storeToRefs(cardsStore)
     const showBtn = ref(true)
+    const showModal = ref(false)
 
     const shuffledCards = cards.value.sort(() => 0.5 - Math.random())
     const startGame = () => {
@@ -46,8 +48,6 @@ export default defineComponent({
     }
 
     const pickCard = (card: any) => {
-      console.log(card, 'card')
-      console.log(selectedCards.value)
       if (selectedCards.value.length === 0) {
         selectedCards.value.push(card)
         console.log(selectedCards.value)
@@ -67,6 +67,22 @@ export default defineComponent({
       if (selectedCards.value.length > 1) {
         return
       }
+      if (pairedCards.value.length === 16) {
+        showModal.value = true
+      }
+    }
+
+    const newGame = () => {
+      pairedCards.value = []
+      selectedCards.value = []
+      showModal.value = false
+    }
+
+    const cancel = () => {
+      pairedCards.value = []
+      selectedCards.value = []
+      router.push('/')
+      showModal.value = false
     }
     return {
       cards,
@@ -74,7 +90,10 @@ export default defineComponent({
       startGame,
       showBtn,
       pickCard,
-      pairedCards
+      pairedCards,
+      newGame,
+      cancel,
+      showModal
     }
   }
 })
