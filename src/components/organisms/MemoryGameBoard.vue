@@ -10,7 +10,7 @@
       <Timer class="mx-auto" />
       <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
         <div v-for="card in shuffledCards" :key="card.id">
-          <CardItem :card="card" />
+          <CardItem :card="card" @click-card="pickCard" />
         </div>
       </div>
     </div>
@@ -34,18 +34,42 @@ export default defineComponent({
   },
   setup() {
     const cardsStore = useMemoryStore()
-    const { cards } = storeToRefs(cardsStore)
+    const { cards, selectedCards, pairedCards } = storeToRefs(cardsStore)
     const showBtn = ref(true)
     const shuffledCards = cards.value.sort(() => 0.5 - Math.random())
     const startGame = () => {
       showBtn.value = false
     }
 
+    const pickCard = (card: any) => {
+      console.log(card, 'card')
+      console.log(selectedCards.value)
+      if (selectedCards.value.length === 0) {
+        selectedCards.value.push(card)
+        console.log(selectedCards.value)
+        return
+      }
+      if (selectedCards.value.length === 1) {
+        selectedCards.value.push(card)
+        if (selectedCards.value[0].name === selectedCards.value[1].name) {
+          pairedCards.value.push(...selectedCards.value)
+          selectedCards.value = []
+        } else {
+          setTimeout(() => {
+            selectedCards.value = []
+          }, 2000)
+        }
+      }
+      if (selectedCards.value.length > 1) {
+        return
+      }
+    }
     return {
       cards,
       shuffledCards,
       startGame,
-      showBtn
+      showBtn,
+      pickCard
     }
   }
 })
