@@ -76,6 +76,7 @@ export default defineComponent({
       pairedCards.value = []
       selectedCards.value = []
       showModal.value = false
+      showBtn.value = true
     }
 
     const cancel = () => {
