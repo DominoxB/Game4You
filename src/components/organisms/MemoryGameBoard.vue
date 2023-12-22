@@ -22,11 +22,12 @@
 import { defineComponent, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useMemoryStore } from '@/stores/memoryStore'
+import { useRouter } from 'vue-router'
 import CardItem from '@/components/atoms/CardItem.vue'
 import MemoryInfoBoard from '@/components/atoms/MemoryInfoBoard.vue'
 import Timer from '@/components/atoms/Timer.vue'
 import ModalMemory from '@/components/atoms/ModalMemory.vue'
-import router from '@/router'
+
 
 export default defineComponent({
   name: 'MemoryGameBoard',
@@ -37,6 +38,7 @@ export default defineComponent({
     ModalMemory
   },
   setup() {
+    const router = useRouter()
     const cardsStore = useMemoryStore()
     const { cards, selectedCards, pairedCards } = storeToRefs(cardsStore)
     const showBtn = ref(true)
