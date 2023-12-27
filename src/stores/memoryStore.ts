@@ -89,7 +89,8 @@ export const useMemoryStore = defineStore("Memory", {
       selectedCards: [] as any,
       pairedCards: [] as any,
       showModal: false,
-      movesCounter: 0
+      movesCounter: 0,
+      mistakesCounter: 0
     }
   },
 })
