@@ -40,9 +40,8 @@ export default defineComponent({
   setup() {
     const router = useRouter()
     const cardsStore = useMemoryStore()
-    const { cards, selectedCards, pairedCards } = storeToRefs(cardsStore)
+    const { cards, selectedCards, pairedCards, showModal } = storeToRefs(cardsStore)
     const showBtn = ref(true)
-    const showModal = ref(false)
 
     const shuffledCards = cards.value.sort(() => 0.5 - Math.random())
     const startGame = () => {
