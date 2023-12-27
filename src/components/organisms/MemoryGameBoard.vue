@@ -9,7 +9,7 @@
       <MemoryInfoBoard />
       <Timer class="mx-auto" />
       <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
-        <div v-for="card in shuffledCards" :key="card.id">
+        <div v-for="card in cards" :key="card.id">
           <CardItem :card="card" @click-card="pickCard" />
         </div>
         <ModalMemory v-if="showModal" @click-yes="newGame" @click-cancel="cancel" />
@@ -40,24 +40,28 @@ export default defineComponent({
   setup() {
     const router = useRouter()
     const cardsStore = useMemoryStore()
-    const { cards, selectedCards, pairedCards, showModal } = storeToRefs(cardsStore)
+    const { cards, selectedCards, pairedCards, showModal, movesCounter } = storeToRefs(cardsStore)
     const showBtn = ref(true)
 
-    const shuffledCards = cards.value.sort(() => 0.5 - Math.random())
+    const shuffledCards = () => {
+      cards.value.sort(() => 0.5 - Math.random())
+    }
+
     const startGame = () => {
+      shuffledCards()
       showBtn.value = false
     }
 
     const pickCard = (card: any) => {
       if (selectedCards.value.length === 0) {
         selectedCards.value.push(card)
-        console.log(selectedCards.value)
         return
       }
       if (selectedCards.value.length === 1) {
         selectedCards.value.push(card)
         if (selectedCards.value[0].name === selectedCards.value[1].name) {
           pairedCards.value.push(...selectedCards.value)
+          movesCounter.value++
           selectedCards.value = []
         } else {
           setTimeout(() => {
@@ -66,6 +70,7 @@ export default defineComponent({
         }
       }
       if (selectedCards.value.length > 1) {
+        movesCounter.value++
         return
       }
       if (pairedCards.value.length === 16) {
@@ -78,11 +83,13 @@ export default defineComponent({
       selectedCards.value = []
       showModal.value = false
       showBtn.value = true
+      movesCounter.value = 0 
     }
 
     const cancel = () => {
       pairedCards.value = []
       selectedCards.value = []
+      movesCounter.value = 0 
       router.push('/')
       showModal.value = false
     }
