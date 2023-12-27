@@ -40,7 +40,7 @@ export default defineComponent({
   setup() {
     const router = useRouter()
     const cardsStore = useMemoryStore()
-    const { cards, selectedCards, pairedCards, showModal, movesCounter } = storeToRefs(cardsStore)
+    const { cards, selectedCards, pairedCards, showModal, movesCounter, mistakesCounter } = storeToRefs(cardsStore)
     const showBtn = ref(true)
 
     const shuffledCards = () => {
@@ -65,6 +65,7 @@ export default defineComponent({
           selectedCards.value = []
         } else {
           setTimeout(() => {
+            mistakesCounter.value++
             selectedCards.value = []
           }, 1000)
         }
@@ -83,13 +84,15 @@ export default defineComponent({
       selectedCards.value = []
       showModal.value = false
       showBtn.value = true
-      movesCounter.value = 0 
+      movesCounter.value = 0
+      mistakesCounter.value = 0
     }
 
     const cancel = () => {
       pairedCards.value = []
       selectedCards.value = []
-      movesCounter.value = 0 
+      movesCounter.value = 0
+      mistakesCounter.value = 0
       router.push('/')
       showModal.value = false
     }
