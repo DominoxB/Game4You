@@ -12,6 +12,7 @@
         <div v-for="card in shuffledCards" :key="card.id">
           <CardItem :card="card" @click-card="pickCard" />
         </div>
+        <ModalMemory v-if="showModal" @click-yes="newGame" @click-cancel="cancel" />
       </div>
     </div>
   </div>
@@ -21,20 +22,25 @@
 import { defineComponent, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useMemoryStore } from '@/stores/memoryStore'
+import { useRouter } from 'vue-router'
 import CardItem from '@/components/atoms/CardItem.vue'
 import MemoryInfoBoard from '@/components/atoms/MemoryInfoBoard.vue'
 import Timer from '@/components/atoms/Timer.vue'
+import ModalMemory from '@/components/atoms/ModalMemory.vue'
+
 
 export default defineComponent({
   name: 'MemoryGameBoard',
   components: {
     CardItem,
     MemoryInfoBoard,
-    Timer
+    Timer,
+    ModalMemory
   },
   setup() {
+    const router = useRouter()
     const cardsStore = useMemoryStore()
-    const { cards, selectedCards, pairedCards } = storeToRefs(cardsStore)
+    const { cards, selectedCards, pairedCards, showModal } = storeToRefs(cardsStore)
     const showBtn = ref(true)
 
     const shuffledCards = cards.value.sort(() => 0.5 - Math.random())
@@ -43,8 +49,6 @@ export default defineComponent({
     }
 
     const pickCard = (card: any) => {
-      console.log(card, 'card')
-      console.log(selectedCards.value)
       if (selectedCards.value.length === 0) {
         selectedCards.value.push(card)
         console.log(selectedCards.value)
@@ -58,19 +62,40 @@ export default defineComponent({
         } else {
           setTimeout(() => {
             selectedCards.value = []
-          }, 1500)
+          }, 1000)
         }
       }
       if (selectedCards.value.length > 1) {
         return
       }
+      if (pairedCards.value.length === 16) {
+        showModal.value = true
+      }
+    }
+
+    const newGame = () => {
+      pairedCards.value = []
+      selectedCards.value = []
+      showModal.value = false
+      showBtn.value = true
+    }
+
+    const cancel = () => {
+      pairedCards.value = []
+      selectedCards.value = []
+      router.push('/')
+      showModal.value = false
     }
     return {
       cards,
       shuffledCards,
       startGame,
       showBtn,
-      pickCard
+      pickCard,
+      pairedCards,
+      newGame,
+      cancel,
+      showModal
     }
   }
 })

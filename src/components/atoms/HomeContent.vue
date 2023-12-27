@@ -8,8 +8,8 @@
     <div class="flex justify-center space-x-24 mt-20">
       <router-link to="/MemoryGame">
         <div class="transition lease-in-out delay-100 hover:scale-110 cursor-pointer">
-          <img src="@/components/images/memory-game.png" alt="Memory Game"
-            class="w-[600px] h-[300px] border-4 border-white rounded" />
+          <img src="@/components/images/memory.png" alt="Memory Game"
+            class="border-4 border-pink-800 rounded" />
         </div>
       </router-link>
       <router-link to="/TicTacToeGame">
