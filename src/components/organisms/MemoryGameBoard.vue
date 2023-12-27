@@ -9,7 +9,7 @@
       <MemoryInfoBoard />
       <Timer class="mx-auto" />
       <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
-        <div v-for="card in shuffledCards" :key="card.id">
+        <div v-for="card in cards" :key="card.id">
           <CardItem :card="card" @click-card="pickCard" />
         </div>
         <ModalMemory v-if="showModal" @click-yes="newGame" @click-cancel="cancel" />
@@ -43,8 +43,12 @@ export default defineComponent({
     const { cards, selectedCards, pairedCards, showModal, movesCounter } = storeToRefs(cardsStore)
     const showBtn = ref(true)
 
-    const shuffledCards = cards.value.sort(() => 0.5 - Math.random())
+    const shuffledCards = () => {
+      cards.value.sort(() => 0.5 - Math.random())
+    }
+
     const startGame = () => {
+      shuffledCards()
       showBtn.value = false
     }
 
