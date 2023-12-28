@@ -9,7 +9,7 @@
       <router-link to="/MemoryGame">
         <div class="cursor-pointer w-[445px] h-[445px]" @mouseover="hover = true" @mouseleave="hover = false">
           <span>Memory</span>
-          <video width="445" height="445" autoplay v-if="hover" class="mt2">
+          <video width="445" height="445" autoplay v-if="hover" class="mt-2">
             <source src="../videos/memory.mp4">
           </video>
           <img src="@/components/images/mems.png" alt="Memory Game"
