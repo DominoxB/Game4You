@@ -7,9 +7,12 @@
     </div>
     <div class="flex justify-center space-x-24 mt-20">
       <router-link to="/MemoryGame">
-        <div class="transition lease-in-out delay-100 hover:scale-110 cursor-pointer">
+        <div class="cursor-pointer hover:cursor-none w-[445px] h-[445px]" @mouseover="hover = true" @mouseleave="hover = false">
+          <video width="445" height="445" autoplay v-if="hover">
+            <source src="../videos/memory.mp4">
+          </video>
           <img src="@/components/images/mems.png" alt="Memory Game"
-            class="border-4 border-pink-800 rounded" />
+            class="border-4 border-pink-800 rounded" v-else/>
         </div>
       </router-link>
       <router-link to="/TicTacToeGame">
@@ -23,8 +26,14 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, ref } from 'vue'
 export default defineComponent({
-  name: 'HomeContent'
+  name: 'HomeContent',
+  setup() {
+    const hover = ref(false)
+    return {
+      hover
+    }
+  }
 })
 </script>
