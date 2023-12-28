@@ -7,9 +7,9 @@
     </div>
     <div class="flex justify-center space-x-24 mt-20">
       <router-link to="/MemoryGame">
-        <div class="cursor-pointer w-[445px] h-[445px]" @mouseover="hover = true" @mouseleave="hover = false">
+        <div class="cursor-pointer hover:cursor-none w-[445px] h-[445px]" @mouseover="hover = true" @mouseleave="hover = false">
           <video width="445" height="445" autoplay v-if="hover">
-            <source src="../videos/dog.mp4">
+            <source src="../videos/memory.mp4">
           </video>
           <img src="@/components/images/mems.png" alt="Memory Game"
             class="border-4 border-pink-800 rounded" v-else/>
