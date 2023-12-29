@@ -6,7 +6,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import TicTacToeGameBoard from '@/components/atoms/TicTacToeGameBoard.vue'
+import TicTacToeGameBoard from '@/components/organisms/TicTacToeGameBoard.vue'
 export default defineComponent({
   name: 'TicTacToeGame',
   components: {
