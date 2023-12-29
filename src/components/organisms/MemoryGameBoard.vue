@@ -10,7 +10,7 @@
       <Timer class="mx-auto" />
       <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
         <div v-for="card in cards" :key="card.id">
-          <CardItem :card="card" @click-card="pickCard" />
+          <CardItemMemory :card="card" @click-card="pickCard" />
         </div>
         <ModalMemory v-if="showModal" @click-yes="newGame" @click-cancel="cancel" />
       </div>
@@ -23,7 +23,7 @@ import { defineComponent, ref } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useMemoryStore } from '@/stores/memoryStore'
 import { useRouter } from 'vue-router'
-import CardItem from '@/components/atoms/CardItem.vue'
+import CardItemMemory from '@/components/atoms/CardItemMemory.vue'
 import MemoryInfoBoard from '@/components/atoms/MemoryInfoBoard.vue'
 import Timer from '@/components/atoms/Timer.vue'
 import ModalMemory from '@/components/atoms/ModalMemory.vue'
@@ -32,7 +32,7 @@ import ModalMemory from '@/components/atoms/ModalMemory.vue'
 export default defineComponent({
   name: 'MemoryGameBoard',
   components: {
-    CardItem,
+    CardItemMemory,
     MemoryInfoBoard,
     Timer,
     ModalMemory

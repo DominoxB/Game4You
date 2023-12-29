@@ -1,18 +1,14 @@
 <template>
-  <div class="flex justify-center items-center bg-gray-900 h-32 text-indigo-300 font-chacra">
-    <div class="flex space-x-8 cursor-pointer uppercase">
+  <div class="flex justify-center items-center bg-gray-900 h-32 text-white font-chacra">
+    <div class="flex cursor-pointer uppercase">
       <Dropdown title="Nasze Gry" :items="games" />
-      <span class="border-b-2 p-2 border-solid border-transparent hover:border-b-pink-900 text-md">O
-        nas</span>
     </div>
     <router-link to="/">
       <HomeLogo />
     </router-link>
-    <div class="flex text-md space-x-8 cursor-pointer uppercase">
-      <span
-        class="p-2 border-b-2 border-solid border-transparent hover:border-b-pink-900">Współpraca</span>
-      <span
-        class="p-2 border-b-2 border-solid border-transparent hover:border-b-pink-900">Kontakt</span>
+    <div class="flex text-md cursor-pointer uppercase">
+      <span class="border-b-2 py-2 border-solid border-transparent hover:border-b-pink-900 text-md">O
+        nas</span>
     </div>
   </div>
 </template>

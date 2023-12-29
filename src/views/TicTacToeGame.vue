@@ -1,14 +1,16 @@
 <template>
-  <div class="text-white text-center mt-40">
-    Tu będzie plansza TicTacToe
+  <div class="flex justify-center items-center mt-20">
+    <TicTacToeGameBoard />
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue'
+import TicTacToeGameBoard from '@/components/atoms/TicTacToeGameBoard.vue'
 export default defineComponent({
   name: 'TicTacToeGame',
   components: {
+    TicTacToeGameBoard
   }
 })
 </script>
