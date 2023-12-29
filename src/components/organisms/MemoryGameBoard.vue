@@ -6,7 +6,12 @@
       <img src="../images/memory.png" />
     </div>
     <div v-else>
-      <MemoryInfoBoard />
+      <div class="flex justify-center items-center space-x-10">
+        <MemoryInfoBoard />
+        <div @click="refresh">
+          <img src="../images/refresh.png" class="w-10" />
+        </div>
+      </div>
       <Timer class="mx-auto" />
       <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
         <div v-for="card in cards" :key="card.id">
@@ -79,6 +84,14 @@ export default defineComponent({
       }
     }
 
+    const refresh = () => {
+      selectedCards.value = []
+      pairedCards.value = []
+      movesCounter.value = 0
+      mistakesCounter.value = 0
+      shuffledCards()
+    }
+
     const newGame = () => {
       pairedCards.value = []
       selectedCards.value = []
@@ -105,7 +118,8 @@ export default defineComponent({
       pairedCards,
       newGame,
       cancel,
-      showModal
+      showModal,
+      refresh
     }
   }
 })

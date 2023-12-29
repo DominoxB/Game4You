@@ -16,7 +16,7 @@ export default defineComponent({
   name: 'MemoryTimer',
   setup() {
     const cardsStore = useMemoryStore()
-    const { showModal } = storeToRefs(cardsStore)
+    const { showModal, movesCounter } = storeToRefs(cardsStore)
     const timeElapsed = ref(0)
 
     const formatTime = (time: number) => {
@@ -33,7 +33,13 @@ export default defineComponent({
       if (showModal.value === true) {
         clearInterval(start)
       }
-    });
+    })
+
+    watch(movesCounter, () => {
+      if (movesCounter.value === 0) {
+        timeElapsed.value = 0
+      }
+    })
 
     return {
       timeElapsed,
