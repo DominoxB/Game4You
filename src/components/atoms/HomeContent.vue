@@ -7,9 +7,9 @@
     </div>
     <div class="flex justify-center text-center text-blue-200 font-silk text-3xl space-x-24 mt-16">
       <router-link to="/MemoryGame">
-        <div class="cursor-pointer w-[445px] h-[445px]" @mouseover="hover = true" @mouseleave="hover = false">
+        <div class="cursor-pointer w-[445px] h-[445px]" @mouseover="hoverMemory = true" @mouseleave="hoverMemory = false">
           <span>Memory</span>
-          <video width="445" height="445" autoplay v-if="hover" class="mt-2">
+          <video width="445" height="445" autoplay v-if="hoverMemory" class="mt-2">
             <source src="../videos/memory.mp4">
           </video>
           <img src="@/components/images/mems.png" alt="Memory Game"
@@ -17,10 +17,13 @@
         </div>
       </router-link>
       <router-link to="/TicTacToeGame">
-        <div class="cursor-pointer w-[445px] h-[445px]">
+        <div class="cursor-pointer w-[445px] h-[445px]" @mouseover="hoverTicTacToe = true" @mouseleave="hoverTicTacToe = false">
           <span>Kółko i krzyżyk</span>
-          <img src="@/components/images/tictactoe.png" alt="Kółko i krzyżyk"
-            class="border-4 border-indigo-800 rounded mt-2"/>
+          <video width="445" height="445" autoplay v-if="hoverTicTacToe" class="mt-2">
+            <source src="">
+          </video>
+          <img src="@/components/images/tictac.png" alt="Memory Game"
+            class="border-[3px] border-indigo-800 rounded mt-2" v-else />
         </div>
       </router-link>
     </div>
@@ -32,9 +35,11 @@ import { defineComponent, ref } from 'vue'
 export default defineComponent({
   name: 'HomeContent',
   setup() {
-    const hover = ref(false)
+    const hoverMemory = ref(false)
+    const hoverTicTacToe = ref(false)
     return {
-      hover
+      hoverMemory,
+      hoverTicTacToe
     }
   }
 })
