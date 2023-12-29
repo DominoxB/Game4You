@@ -2,7 +2,7 @@
   <div class="bg-gray-900 my-auto font-chacra">
     <div class="text-center mt-20 mx-80 pb-10 text-blue-100">
       <span class="text-2xl leading-10">Game4You to miejsce dla ludzi, którzy cenią sobie kultowe gry-klasyki.
-        Sprawdź swoją pamięć, spróbuj szczęścia i znajdź wszystkie pary w grze pamięciowej Memory Doggy! A może wolisz zagrać w kółko i
+        Sprawdź swoją pamięć, spróbuj szczęścia i znajdź wszystkie pary w grze pamięciowej Memory! A może wolisz zagrać w kółko i
         krzyżyk? Pamiętaj - tylko trzy takie same znaki w linii zaprowadzą Cię do zwycięstwa. Powodzenia!</span>
     </div>
     <div class="flex justify-center text-center text-blue-200 font-silk text-3xl space-x-24 mt-16">
