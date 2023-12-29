@@ -8,9 +8,7 @@
     <div v-else>
       <div class="flex justify-center items-center space-x-10">
         <MemoryInfoBoard />
-        <div @click="refresh">
-          <img src="../images/refresh.png" class="w-10" />
-        </div>
+        <RefreshArrows @refresh="refreshGame"/>
       </div>
       <Timer class="mx-auto" />
       <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
@@ -32,6 +30,7 @@ import CardItemMemory from '@/components/atoms/CardItemMemory.vue'
 import MemoryInfoBoard from '@/components/atoms/MemoryInfoBoard.vue'
 import Timer from '@/components/atoms/Timer.vue'
 import ModalMemory from '@/components/atoms/ModalMemory.vue'
+import RefreshArrows from '@/components/atoms/RefreshArrows.vue'
 
 
 export default defineComponent({
@@ -40,7 +39,8 @@ export default defineComponent({
     CardItemMemory,
     MemoryInfoBoard,
     Timer,
-    ModalMemory
+    ModalMemory,
+    RefreshArrows
   },
   setup() {
     const router = useRouter()
@@ -84,7 +84,7 @@ export default defineComponent({
       }
     }
 
-    const refresh = () => {
+    const refreshGame = () => {
       selectedCards.value = []
       pairedCards.value = []
       movesCounter.value = 0
@@ -111,15 +111,15 @@ export default defineComponent({
     }
     return {
       cards,
+      showBtn,
+      pairedCards,
+      showModal,
       shuffledCards,
       startGame,
-      showBtn,
       pickCard,
-      pairedCards,
       newGame,
       cancel,
-      showModal,
-      refresh
+      refreshGame
     }
   }
 })
