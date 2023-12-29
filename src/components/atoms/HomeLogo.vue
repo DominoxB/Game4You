@@ -1,6 +1,6 @@
 <template>
   <div class="mx-12 bg-gray-900 flex items-center">
-    <span class="text-6xl font-chacra text-blue-200">Game4You</span>
+    <span class="text-6xl font-chacra text-blue-100">Game4You</span>
   </div>
 </template>
 
