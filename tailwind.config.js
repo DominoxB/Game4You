@@ -8,7 +8,8 @@ module.exports = {
         kanit: ["Kanit", "sans-serif"],
         bebas: ['Bebas Neue', 'sans-serif'],
         silk: ['Silkscreen', 'sans-serif'],
-        chacra: ['Chakra Petch', 'sans-serif']
+        chacra: ['Chakra Petch', 'sans-serif'],
+        rubik: ['Rubik Doodle Shadow', 'sans-serif']
       },
     }
   },
