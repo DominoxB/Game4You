@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center bg-gray-900 h-32 text-white font-chacra">
+  <div class="flex justify-center items-center bg-gray-900 h-32 text-white font-dosis">
     <div class="flex cursor-pointer uppercase">
       <Dropdown title="Nasze Gry" :items="games" />
     </div>

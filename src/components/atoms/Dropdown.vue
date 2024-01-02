@@ -8,7 +8,7 @@
         </path>
       </svg>
     </div>
-    <div v-if="isOpen" class="absolute bg-gray-800 rounded-b-2xl font-chacra">
+    <div v-if="isOpen" class="absolute bg-gray-800 rounded-b-2xl font-dosis">
       <div v-for="(item, i) in items" :key="i"
         class="p-2 border-b-2 border-solid border-transparent hover:bg-gray-700 normal-case hover:last:rounded-b-2xl hover:border-b-pink-900">
         <router-link :to="item.url">
