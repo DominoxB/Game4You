@@ -1,6 +1,6 @@
 <template>
   <div class="bg-gray-900 my-auto font-dosis">
-    <div class="text-center mt-20 mx-80 pb-10 text-blue-100">
+    <div class="text-center mt-20 mx-80 pb-10 text-blue-100 animate-fade-down">
       <span class="text-2xl leading-10">Game4You to miejsce dla ludzi, którzy cenią sobie kultowe gry-klasyki.
         Sprawdź swoją pamięć i znajdź wszystkie pary w grze Memory! A może wolisz kółko i
         krzyżyk? Pamiętaj - tylko trzy takie same znaki w linii zaprowadzą Cię do zwycięstwa. Powodzenia!</span>
