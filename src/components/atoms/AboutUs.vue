@@ -5,7 +5,7 @@
   </div>
     <div class="text-white text-center mx-40 px-20 mt-20 py-10 font-silk text-2xl animate-fade-right">
       <span>Jesteśmy wielbicielami klasycznych gier, które towarzyszą nam praktycznie od dzieciństwa. Teraz postanowiliśmy
-        wykorzystać nasze programistyczne umiejętności do stworzenia wersji online! Mamy nadzieję, że gierki dadzą Wam co
+        wykorzystać nasze programistyczne umiejętności do stworzenia własnej wersji online! Mamy nadzieję, że gierki dadzą Wam co
         najmniej tyle frajdy, co nam tworzenie ich.
       </span>
       <p >Enjoy!</p>
