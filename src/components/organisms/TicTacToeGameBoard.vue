@@ -6,10 +6,10 @@
       <img src="../images/tictac.png" class="mx-auto w-[480px] h-[480px]" />
     </div>
     <div v-else>
-      <MemoryInfoBoard />
+      <TicTacToeInfoBoard />
       <Timer class="mx-auto mb-8" />
       <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl">
-        <CardItemTicTacToe v-for="n in 9" :key="n"/>
+        <CardItemTicTacToe v-for="n in 9" :key="n" @click-card="selectCard"/>
       </div>
     </div>
   </div>
@@ -18,14 +18,14 @@
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 import Timer from '@/components/atoms/Timer.vue'
-import MemoryInfoBoard from '@/components/atoms/MemoryInfoBoard.vue'
+import TicTacToeInfoBoard from '@/components/atoms/TicTacToeInfoBoard.vue'
 import CardItemTicTacToe from '@/components/atoms/CardItemTicTacToe.vue'
 
 export default defineComponent({
   name: 'TicTacToeGameBoard',
   components: {
     Timer,
-    MemoryInfoBoard,
+    TicTacToeInfoBoard,
     CardItemTicTacToe
   },
   setup() {
@@ -33,9 +33,13 @@ export default defineComponent({
     const startGame = () => {
       showBtn.value = false
     }
+
+    const selectCard = () => {
+    }
     return {
       showBtn,
-      startGame
+      startGame,
+      selectCard
     }
   }
 })
