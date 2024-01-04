@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white border border-indigo-300 w-[120px] h-[120px] flex items-center justify-center cursor-pointer" @click="$emit('clickCard')">
+  <div class="text-white border border-indigo-300 w-[150px] h-[150px] flex items-center justify-center cursor-pointer" @click="$emit('clickCard')">
     {{ cardValue }}
   </div>
 </template>

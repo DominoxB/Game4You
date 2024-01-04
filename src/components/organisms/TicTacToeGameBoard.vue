@@ -7,9 +7,9 @@
     </div>
     <div v-else>
       <MemoryInfoBoard />
-      <Timer class="mx-auto" />
-      <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 pt-4 font-bold text-5xl">
-        <CardItemTicTacToe />
+      <Timer class="mx-auto mb-8" />
+      <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl">
+        <CardItemTicTacToe v-for="n in 9" :key="n"/>
       </div>
     </div>
   </div>
