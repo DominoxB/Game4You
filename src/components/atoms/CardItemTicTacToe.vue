@@ -1,13 +1,42 @@
 <template>
-  <div class="text-white border border-indigo-300 w-[120px] h-[120px] flex items-center justify-center">
+  <div class="text-white border border-indigo-300 w-[150px] h-[150px] flex items-center justify-center cursor-pointer"
+    @click="$emit('clickCard', id)">
+    <span>{{ cardValue }}</span>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, computed } from 'vue'
 
 export default defineComponent({
   name: 'CardItemTicTacToe',
+  props: {
+    id: {
+      type: Number,
+    },
+    isX: {
+      type: Boolean,
+    },
+    isO: {
+      type: Boolean,
+    }
+  },
+  emits: ['clickCard'],
+  setup(props) {
+
+    const cardValue = computed(() => {
+      if (props.isX) {
+        return 'X'
+      } else if (props.isO) {
+        return 'O'
+      } else {
+        return ''
+      }   
+    })
+
+    return {
+      cardValue,
+    }
+  }
 })
 </script>
-
