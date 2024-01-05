@@ -9,7 +9,7 @@
       <TicTacToeInfoBoard />
       <Timer class="mx-auto mb-8" />
       <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl">
-        <CardItemTicTacToe v-for="n in 9" :key="n" @click-card="selectCard"/>
+        <CardItemTicTacToe v-for="n in 9" :key="n" :id="n" @click-card="selectField" :is-x="fieldX.includes(n)" :is-o="fieldO.includes(n)" />
       </div>
     </div>
   </div>
@@ -34,12 +34,32 @@ export default defineComponent({
       showBtn.value = false
     }
 
-    const selectCard = () => {
+    const fieldX = ref([] as number[])
+    const fieldO = ref([] as number[])
+
+    const selectField = (id: number) => {
+      fieldX.value.push(id)
+      console.log(id)
+      console.log(fieldX.value)
     }
+
+    // const lines = [
+    //   [1, 2, 3],
+    //   [4, 5, 6],
+    //   [7, 8, 9],
+    //   [1, 4, 7],
+    //   [2, 5, 8],
+    //   [3, 6, 9],
+    //   [1, 5, 9],
+    //   [3, 5, 7]
+    // ]
+
     return {
       showBtn,
       startGame,
-      selectCard
+      selectField,
+      fieldX,
+      fieldO
     }
   }
 })
