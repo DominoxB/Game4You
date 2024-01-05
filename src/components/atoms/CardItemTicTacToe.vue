@@ -1,7 +1,11 @@
 <template>
-  <div class="text-white border border-indigo-300 w-[150px] h-[150px] flex items-center justify-center cursor-pointer"
+  <div
+    class="text-[65px] font-silk border border-indigo-300 w-[150px] h-[150px] flex items-center justify-center cursor-pointer"
     @click="$emit('clickCard', id)">
-    <span>{{ cardValue }}</span>
+    <span class="bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text" v-if="isX">{{ cardValue
+    }}</span>
+    <span class="bg-gradient-to-r from-blue-500 via-green-500 to-violet-500 text-transparent bg-clip-text" v-else>{{
+      cardValue }}</span>
   </div>
 </template>
 
@@ -31,7 +35,7 @@ export default defineComponent({
         return 'O'
       } else {
         return ''
-      }   
+      }
     })
 
     return {
