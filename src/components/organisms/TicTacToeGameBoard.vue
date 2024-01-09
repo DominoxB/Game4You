@@ -7,8 +7,7 @@
     </div>
     <div v-else>
       <TicTacToeInfoBoard :message="infoText"/>
-      <Timer class="mx-auto mb-8" />
-      <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl">
+      <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl mt-16">
         <CardItemTicTacToe v-for="n in 9" :key="n" :id="n" @click-card="selectField" :is-x="fieldX.includes(n)"
           :is-o="fieldO.includes(n)" />
       </div>
@@ -18,14 +17,12 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
-import Timer from '@/components/atoms/Timer.vue'
 import TicTacToeInfoBoard from '@/components/atoms/TicTacToeInfoBoard.vue'
 import CardItemTicTacToe from '@/components/atoms/CardItemTicTacToe.vue'
 
 export default defineComponent({
   name: 'TicTacToeGameBoard',
   components: {
-    Timer,
     TicTacToeInfoBoard,
     CardItemTicTacToe
   },
