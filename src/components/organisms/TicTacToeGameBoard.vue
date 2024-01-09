@@ -96,7 +96,9 @@ export default defineComponent({
         audioDraw.value?.play()
       }
       setTimeout(() => {
-        selectFieldO()
+        if (allId.length < 9) {
+          selectFieldO()
+        }
       }, 1000)
     }
 
@@ -105,7 +107,7 @@ export default defineComponent({
       fieldO.value = []
       infoText.value = 'Kółko i krzyżyk'
     }
-    
+
     return {
       showBtn,
       startGame,
