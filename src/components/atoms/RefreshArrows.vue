@@ -1,5 +1,5 @@
 <template>
-  <div @click="$emit('refresh')">
+  <div @click="$emit('refresh')" class="flex justify-center cursor-pointer">
     <img src="../images/refresh.png" class="w-10" />
   </div>
 </template>
