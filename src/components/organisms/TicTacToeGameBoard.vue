@@ -6,8 +6,9 @@
       <img src="../images/tictac.png" class="mx-auto w-[480px] h-[480px]" />
     </div>
     <div v-else>
-      <TicTacToeInfoBoard :message="infoText"/>
-      <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl mt-16">
+        <TicTacToeInfoBoard :message="infoText"/>
+        <RefreshArrows class="mt-8"/>
+      <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl mt-8">
         <CardItemTicTacToe v-for="n in 9" :key="n" :id="n" @click-card="selectField" :is-x="fieldX.includes(n)"
           :is-o="fieldO.includes(n)" />
       </div>
@@ -19,12 +20,14 @@
 import { defineComponent, ref } from 'vue'
 import TicTacToeInfoBoard from '@/components/atoms/TicTacToeInfoBoard.vue'
 import CardItemTicTacToe from '@/components/atoms/CardItemTicTacToe.vue'
+import RefreshArrows from '../atoms/RefreshArrows.vue'
 
 export default defineComponent({
   name: 'TicTacToeGameBoard',
   components: {
     TicTacToeInfoBoard,
-    CardItemTicTacToe
+    CardItemTicTacToe, 
+    RefreshArrows
   },
   setup() {
     const showBtn = ref(true)
