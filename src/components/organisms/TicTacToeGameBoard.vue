@@ -21,7 +21,7 @@
       <TicTacToeInfoBoard :message="infoText" />
       <RefreshArrows class="mt-8" @refresh="refreshGame" />
       <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl mt-8">
-        <CardItemTicTacToe v-for="n in 9" :key="n" :id="n" @click-card="selectField" :is-x="fieldX.includes(n)"
+        <CardItemTicTacToe v-for="n in 9" :key="n" :id="n" @show-sign="selectField" :is-x="fieldX.includes(n)"
           :is-o="fieldO.includes(n)" />
       </div>
     </div>
@@ -64,6 +64,8 @@ export default defineComponent({
       [3, 5, 7]
     ]
 
+    const isBlocked = ref(false)
+
     const selectFieldO = () => {
       const computerChoiceId = Math.floor(Math.random() * 8) + 1
       if (fieldX.value.includes(computerChoiceId) || fieldO.value.includes(computerChoiceId)) {   // wybór losowy kratki, jesli jest zajeta-szukaj dalej
@@ -74,6 +76,7 @@ export default defineComponent({
         console.log('lineO:', winO)
         if (winO.includes(true)) {
           infoText.value = 'O wygrywa!'
+          isBlocked.value = true
           audioO.value?.play()
           return
         }
@@ -81,6 +84,9 @@ export default defineComponent({
     }
 
     const selectField = (id: number) => {
+      if (isBlocked.value) {
+        return
+      }
       fieldX.value.push(id)
       const winX = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
       console.log('line:', winX)
@@ -88,6 +94,7 @@ export default defineComponent({
       console.log(allId)
       if (winX.includes(true)) {
         infoText.value = 'X wygrywa!'
+        isBlocked.value = true
         audioX.value?.play()
         return
       }
@@ -106,6 +113,7 @@ export default defineComponent({
       fieldX.value = []
       fieldO.value = []
       infoText.value = 'Kółko i krzyżyk'
+      isBlocked.value = false
     }
 
     return {
