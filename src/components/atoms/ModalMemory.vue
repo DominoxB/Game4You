@@ -37,7 +37,7 @@ export default defineComponent({
   name: "ModalMemory",
   emits: ['clickYes', 'clickCancel'],
   setup() {
-    const audio = ref<HTMLAudioElement>();
+    const audio = ref<HTMLAudioElement>()
     onMounted(() => {
       audio.value?.play()
     });
