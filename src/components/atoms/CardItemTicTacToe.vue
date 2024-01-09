@@ -1,7 +1,7 @@
 <template>
   <div
     class="text-[85px] font-silk border border-indigo-300 w-[150px] h-[150px] flex items-center justify-center cursor-pointer"
-    @click="$emit('clickCard', id)">
+    @click="clickCard">
     <span class="bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text" v-if="isX">{{ cardValue
     }}</span>
     <span class="bg-gradient-to-r from-blue-500 via-green-500 to-violet-500 text-transparent bg-clip-text" v-else>{{
@@ -25,8 +25,8 @@ export default defineComponent({
       type: Boolean,
     }
   },
-  emits: ['clickCard'],
-  setup(props) {
+  emits: ['showSign'],
+  setup(props, context) {
 
     const cardValue = computed(() => {
       if (props.isX) {
@@ -38,8 +38,15 @@ export default defineComponent({
       }
     })
 
+    const clickCard = () => {
+      if (props.isO || props.isX) {
+        return
+      }
+      context.emit('showSign', props.id)
+    }
     return {
       cardValue,
+      clickCard
     }
   }
 })
