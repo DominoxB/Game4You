@@ -19,7 +19,7 @@
     </div>
     <div v-else>
       <TicTacToeInfoBoard :message="infoText" />
-      <RefreshArrows class="mt-8" />
+      <RefreshArrows class="mt-8" @refresh="refreshGame" />
       <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl mt-8">
         <CardItemTicTacToe v-for="n in 9" :key="n" :id="n" @click-card="selectField" :is-x="fieldX.includes(n)"
           :is-o="fieldO.includes(n)" />
@@ -53,7 +53,16 @@ export default defineComponent({
     const audioX = ref<HTMLAudioElement>()
     const audioO = ref<HTMLAudioElement>()
     const audioDraw = ref<HTMLAudioElement>()
-
+    const lines = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9],
+      [1, 5, 9],
+      [3, 5, 7]
+    ]
 
     const selectFieldO = () => {
       const computerChoiceId = Math.floor(Math.random() * 8) + 1
@@ -91,21 +100,17 @@ export default defineComponent({
       }, 1000)
     }
 
-    const lines = [
-      [1, 2, 3],
-      [4, 5, 6],
-      [7, 8, 9],
-      [1, 4, 7],
-      [2, 5, 8],
-      [3, 6, 9],
-      [1, 5, 9],
-      [3, 5, 7]
-    ]
-
+    const refreshGame = () => {
+      fieldX.value = []
+      fieldO.value = []
+      infoText.value = 'Kółko i krzyżyk'
+    }
+    
     return {
       showBtn,
       startGame,
       selectField,
+      refreshGame,
       fieldX,
       fieldO,
       infoText,
