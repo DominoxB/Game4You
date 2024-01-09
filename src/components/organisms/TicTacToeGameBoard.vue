@@ -6,7 +6,7 @@
       <img src="../images/tictac.png" class="mx-auto w-[480px] h-[480px]" />
     </div>
     <div v-else>
-      <TicTacToeInfoBoard />
+      <TicTacToeInfoBoard :message="infoText"/>
       <Timer class="mx-auto mb-8" />
       <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl">
         <CardItemTicTacToe v-for="n in 9" :key="n" :id="n" @click-card="selectField" :is-x="fieldX.includes(n)"
@@ -37,6 +37,7 @@ export default defineComponent({
 
     const fieldX = ref([] as number[])
     const fieldO = ref([] as number[])
+    const infoText = ref('Kółko i krzyżyk')
 
     const selectFieldO = () => {
       const computerChoiceId = Math.floor(Math.random() * 8) + 1
@@ -54,7 +55,12 @@ export default defineComponent({
       console.log('line:', winX)
       const winO = lines.map(line => line.every(el => fieldO.value.includes(el)))
       console.log('line:', winO)
-      if (winX.includes(true) || winO.includes(true)) {
+      if (winX.includes(true)) {
+        infoText.value = 'X wygrywa!'
+        return
+      }
+      if (winO.includes(true)) {
+        infoText.value = 'O wygrywa!'
         return
       }
       setTimeout(() => {
@@ -78,7 +84,8 @@ export default defineComponent({
       startGame,
       selectField,
       fieldX,
-      fieldO
+      fieldO,
+      infoText
     }
   }
 })
