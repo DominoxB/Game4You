@@ -40,8 +40,7 @@ export default defineComponent({
 
     const selectFieldO = () => {
       const computerChoiceId = Math.floor(Math.random() * 8) + 1
-      console.log(computerChoiceId)
-      if (fieldX.value.includes(computerChoiceId) || fieldO.value.includes(computerChoiceId)) {
+      if (fieldX.value.includes(computerChoiceId) || fieldO.value.includes(computerChoiceId)) {   // wybór losowy kratki, jesli jest zajeta-szukaj dalej
         selectFieldO()
       } else {
         fieldO.value.push(computerChoiceId)
@@ -50,23 +49,29 @@ export default defineComponent({
 
     const selectField = (id: number) => {
       fieldX.value.push(id)
-      // console.log(id)
-      // console.log(fieldX.value)
+
+      const winX = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
+      console.log('line:', winX)
+      const winO = lines.map(line => line.every(el => fieldO.value.includes(el)))
+      console.log('line:', winO)
+      if (winX.includes(true) || winO.includes(true)) {
+        return
+      }
       setTimeout(() => {
         selectFieldO()
       }, 1500)
     }
 
-    // const lines = [
-    //   [1, 2, 3],
-    //   [4, 5, 6],
-    //   [7, 8, 9],
-    //   [1, 4, 7],
-    //   [2, 5, 8],
-    //   [3, 6, 9],
-    //   [1, 5, 9],
-    //   [3, 5, 7]
-    // ]
+    const lines = [
+      [1, 2, 3],
+      [4, 5, 6],
+      [7, 8, 9],
+      [1, 4, 7],
+      [2, 5, 8],
+      [3, 6, 9],
+      [1, 5, 9],
+      [3, 5, 7]
+    ]
 
     return {
       showBtn,
