@@ -3,11 +3,13 @@
     <audio hidden="true" ref="audioX">
       <source src="../sounds/xwin.mp3" type="audio/mpeg">
     </audio>
-  </div>
-  <div>
     <audio hidden="true" ref="audioO">
-      <source src="../sounds/negative.mp3" type="audio/mpeg">
+      <source src="../sounds/owin.mp3" type="audio/mpeg">
     </audio>
+    <audio hidden="true" ref="audioDraw">
+      <source src="../sounds/draw.mp3" type="audio/mpeg">
+    </audio>
+
   </div>
   <div>
     <div v-if="showBtn" class="font-silk text-center mb-8">
@@ -50,6 +52,7 @@ export default defineComponent({
     const infoText = ref('Kółko i krzyżyk')
     const audioX = ref<HTMLAudioElement>()
     const audioO = ref<HTMLAudioElement>()
+    const audioDraw = ref<HTMLAudioElement>()
 
 
     const selectFieldO = () => {
@@ -72,10 +75,16 @@ export default defineComponent({
       fieldX.value.push(id)
       const winX = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
       console.log('line:', winX)
+      const allId = fieldX.value.concat(fieldO.value)
+      console.log(allId)
       if (winX.includes(true)) {
         infoText.value = 'X wygrywa!'
         audioX.value?.play()
         return
+      }
+      if (allId.length === 9) {
+        infoText.value = 'Mamy remis!'
+        audioDraw.value?.play()
       }
       setTimeout(() => {
         selectFieldO()
@@ -101,7 +110,8 @@ export default defineComponent({
       fieldO,
       infoText,
       audioX,
-      audioO
+      audioO,
+      audioDraw
     }
   }
 })
