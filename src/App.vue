@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-gray-900 min-h-screen overflow-y-hidden">
+  <div class="bg-gray-900 min-h-screen overflow-hidden">
     <NavbarMenu />
     <router-view />
     <FooterContent />
