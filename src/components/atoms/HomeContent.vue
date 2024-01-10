@@ -9,11 +9,11 @@
       <router-link to="/MemoryGame">
         <div class="cursor-pointer w-[445px] h-[445px]" @mouseover="hoverMemory = true" @mouseleave="hoverMemory = false">
           <span>Memory</span>
-          <video width="445" height="445" autoplay v-if="hoverMemory" class="mt-2">
-            <source src="../videos/memory.mp4">
+          <video width="445" height="445" autoplay muted v-if="hoverMemory" class="mt-2">
+            <source src="../videos/memory.mp4" type="video/mp4">
           </video>
           <img src="@/components/images/mems.png" alt="Memory Game"
-            class="border-4 border-indigo-800 rounded mt-2" v-else/>
+            class="border-4 border-indigo-800 rounded mt-2" v-else />
         </div>
       </router-link>
       <router-link to="/TicTacToeGame">
