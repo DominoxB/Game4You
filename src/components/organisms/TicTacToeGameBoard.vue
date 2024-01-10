@@ -11,7 +11,7 @@
     </audio>
 
   </div>
-  <div class="overflow-visible">
+  <div>
     <div v-if="showBtn" class="font-silk text-center mb-8">
       <div class="text-white text-5xl p-2 bg-gradient-to-r from-sky-500 to-indigo-500">Kółko i krzyżyk</div>
       <button class="border p-1 text-white text-3xl my-8" @click="startGame">START</button>
@@ -21,7 +21,7 @@
       <TicTacToeInfoBoard :message="infoText" />
       <div class="flex justify-center">
         <RefreshArrows class="mt-8" @refresh="refreshGame" />
-        <ConfettiExplosion :particleCount="300" v-if="confetti" :stageHeight="900" :duration="2300" :colors="['#fff', '#FF00FF', '#50EBEC', '#7D0541']"/>
+        <ConfettiExplosion :particleCount="300" v-if="confetti" :duration="2300" :colors="['#fff', '#FF00FF', '#50EBEC', '#7D0541']"/>
      </div>
       <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl mt-8">
         <CardItemTicTacToe v-for="n in 9" :key="n" :id="n" @show-sign="selectField" :is-x="fieldX.includes(n)"
