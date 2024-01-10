@@ -11,7 +11,7 @@
     </audio>
 
   </div>
-  <div>
+  <div class="overflow-visible">
     <div v-if="showBtn" class="font-silk text-center mb-8">
       <div class="text-white text-5xl p-2 bg-gradient-to-r from-sky-500 to-indigo-500">Kółko i krzyżyk</div>
       <button class="border p-1 text-white text-3xl my-8" @click="startGame">START</button>
@@ -19,7 +19,10 @@
     </div>
     <div v-else>
       <TicTacToeInfoBoard :message="infoText" />
-      <RefreshArrows class="mt-8" @refresh="refreshGame" />
+      <div class="flex justify-center">
+        <RefreshArrows class="mt-8" @refresh="refreshGame" />
+        <ConfettiExplosion :particleCount="300" v-if="confetti" :stageHeight="900" :duration="2300" :colors="['#fff', '#FF00FF', '#50EBEC', '#7D0541']"/>
+     </div>
       <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 font-bold text-5xl mt-8">
         <CardItemTicTacToe v-for="n in 9" :key="n" :id="n" @show-sign="selectField" :is-x="fieldX.includes(n)"
           :is-o="fieldO.includes(n)" />
@@ -33,13 +36,15 @@ import { defineComponent, ref } from 'vue'
 import TicTacToeInfoBoard from '@/components/atoms/TicTacToeInfoBoard.vue'
 import CardItemTicTacToe from '@/components/atoms/CardItemTicTacToe.vue'
 import RefreshArrows from '../atoms/RefreshArrows.vue'
+import ConfettiExplosion from 'vue-confetti-explosion'
 
 export default defineComponent({
   name: 'TicTacToeGameBoard',
   components: {
     TicTacToeInfoBoard,
     CardItemTicTacToe,
-    RefreshArrows
+    RefreshArrows,
+    ConfettiExplosion
   },
   setup() {
     const showBtn = ref(true)
@@ -65,6 +70,7 @@ export default defineComponent({
     ]
 
     const isBlocked = ref(false)
+    const confetti = ref(false)
 
     const selectFieldO = () => {
       const computerChoiceId = Math.floor(Math.random() * 8) + 1
@@ -94,6 +100,7 @@ export default defineComponent({
       console.log(allId)
       if (winX.includes(true)) {
         infoText.value = 'X wygrywa!'
+        confetti.value = true
         isBlocked.value = true
         audioX.value?.play()
         return
@@ -114,6 +121,7 @@ export default defineComponent({
       fieldO.value = []
       infoText.value = 'Kółko i krzyżyk'
       isBlocked.value = false
+      confetti.value = false
     }
 
     return {
@@ -126,7 +134,8 @@ export default defineComponent({
       infoText,
       audioX,
       audioO,
-      audioDraw
+      audioDraw,
+      confetti
     }
   }
 })
