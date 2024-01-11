@@ -14,7 +14,8 @@
   <div>
     <div v-if="showBtn" class="font-silk text-center mb-8">
       <div class="text-white text-5xl p-2 bg-gradient-to-r from-sky-500 to-indigo-500">Kółko i krzyżyk</div>
-      <button class="border p-1 text-white text-3xl my-8" @click="startGame">START</button>
+      <button class="border p-1 text-white text-3xl my-8 mr-10 hover:bg-cyan-500" @click="startGame">vs komputer</button>
+      <button class="border p-1 text-white text-3xl my-8 hover:bg-cyan-500" @click="startTwoPlayers">2 graczy</button>
       <img src="../images/tictactoe.png" class="mx-auto w-[480px] h-[480px]" />
     </div>
     <div v-else>
@@ -37,6 +38,7 @@ import TicTacToeInfoBoard from '@/components/atoms/TicTacToeInfoBoard.vue'
 import CardItemTicTacToe from '@/components/atoms/CardItemTicTacToe.vue'
 import RefreshArrows from '../atoms/RefreshArrows.vue'
 import ConfettiExplosion from 'vue-confetti-explosion'
+import { useRouter } from 'vue-router'
 
 export default defineComponent({
   name: 'TicTacToeGameBoard',
@@ -47,9 +49,14 @@ export default defineComponent({
     ConfettiExplosion
   },
   setup() {
+    const router = useRouter()
     const showBtn = ref(true)
     const startGame = () => {
       showBtn.value = false
+    }
+
+    const startTwoPlayers = () => {
+      router.push('/TwoPlayers')
     }
 
     const fieldX = ref([] as number[])
@@ -127,6 +134,7 @@ export default defineComponent({
     return {
       showBtn,
       startGame,
+      startTwoPlayers,
       selectField,
       refreshGame,
       fieldX,
