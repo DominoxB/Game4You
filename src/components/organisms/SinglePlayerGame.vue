@@ -11,7 +11,9 @@
         <source src="../sounds/draw.mp3" type="audio/mpeg">
       </audio>
     </div>
-    <TicTacToeInfoBoard :message="infoText" />
+    <div class="flex justify-center items-center">
+      <TicTacToeInfoBoard :message="infoText" />
+    </div>
     <div class="flex justify-center">
       <RefreshArrows class="mt-8" @refresh="refreshGame" />
       <ConfettiExplosion :particleCount="300" v-if="confetti" :duration="2300"
