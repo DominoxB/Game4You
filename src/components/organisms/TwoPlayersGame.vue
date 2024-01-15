@@ -1,4 +1,5 @@
 <template>
+  <!-- DRAW -->
   <div class="mt-10">
     <div>
       <audio hidden="true" ref="audioX">
@@ -11,7 +12,9 @@
         <source src="../sounds/draw.mp3" type="audio/mpeg">
       </audio>
     </div>
-    <TicTacToeInfoBoard :message="infoText" />
+    <div class="flex justify-center items-center">
+      <TicTacToeInfoBoard :message="infoText" />
+    </div>
     <div class="flex justify-center">
       <RefreshArrows class="mt-8" @refresh="refreshGame" />
       <ConfettiExplosion :particleCount="300" v-if="confetti" :duration="2300"
@@ -37,7 +40,7 @@ export default defineComponent({
     TicTacToeInfoBoard,
     CardItemTicTacToe,
     ConfettiExplosion
-  }, 
+  },
   setup() {
     const infoText = ref('Kółko i krzyżyk')
     const fieldX = ref([] as number[])
