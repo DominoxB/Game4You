@@ -1,6 +1,6 @@
 <template>
   <div
-    class="text-[85px] font-silk border border-indigo-300 w-[150px] h-[150px] flex items-center justify-center cursor-pointer"
+    class="text-[85px] font-silk border border-indigo-300 w-[150px] h-[150px] flex items-center justify-center"
     @click="clickCard">
     <span class="bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text" v-if="isX">{{ cardValue
     }}</span>
