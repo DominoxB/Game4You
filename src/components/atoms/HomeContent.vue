@@ -19,7 +19,7 @@
       <router-link to="/TicTacToeGame">
         <div class="cursor-pointer w-[445px] h-[445px]" @mouseover="hoverTicTacToe = true" @mouseleave="hoverTicTacToe = false">
           <span>Kółko i krzyżyk</span>
-          <video width="445" height="445" autoplay v-if="hoverTicTacToe" class="mt-2">
+          <video width="445" height="445" autoplay muted v-if="hoverTicTacToe" class="mt-2">
             <source src="../videos/tictactoe.mp4">
           </video>
           <img src="@/components/images/tictactoe.png" alt="Memory Game"
