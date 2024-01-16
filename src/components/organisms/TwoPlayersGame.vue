@@ -45,6 +45,8 @@ export default defineComponent({
     const infoText = ref('Kółko i krzyżyk')
     const fieldX = ref([] as number[])
     const fieldO = ref([] as number[])
+    const winX = ref([] as boolean[])
+    const winO = ref([] as boolean[])
     const isBlocked = ref(false)
     const confetti = ref(false)
     const lines = [
@@ -60,8 +62,7 @@ export default defineComponent({
     const audioX = ref<HTMLAudioElement>()
     const audioO = ref<HTMLAudioElement>()
     const audioDraw = ref<HTMLAudioElement>()
-    const selectNumber = ref(0) 
-
+    const selectNumber = ref(0)
 
     const refreshGame = () => {
       fieldX.value = []
@@ -77,8 +78,8 @@ export default defineComponent({
         return
       }
       fieldX.value.push(id)
-      const winX = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
-      if (winX.includes(true)) {
+      winX.value = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
+      if (winX.value.includes(true)) {
         infoText.value = 'X wygrywa!'
         confetti.value = true
         isBlocked.value = true
@@ -92,8 +93,8 @@ export default defineComponent({
         return
       }
       fieldO.value.push(id)
-      const winO = lines.map(line => line.every(el => fieldO.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
-      if (winO.includes(true)) {
+      winO.value = lines.map(line => line.every(el => fieldO.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
+      if (winO.value.includes(true)) {
         infoText.value = 'O wygrywa!'
         confetti.value = true
         isBlocked.value = true
@@ -108,7 +109,13 @@ export default defineComponent({
       } else {
         selectFieldX(id)
       }
+      const allId = fieldX.value.concat(fieldO.value)
+      if (allId.length === 9 && !winX.value.includes(true) && !winO.value.includes(true)) {
+        infoText.value = 'Mamy remis!'
+        audioDraw.value?.play()
+      }
       selectNumber.value++
+      console.log(allId)
     }
 
     return {
@@ -122,7 +129,6 @@ export default defineComponent({
       refreshGame,
       selectField
     }
-
   }
 })
 </script>
