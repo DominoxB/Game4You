@@ -6,7 +6,7 @@
         <source src="../sounds/xwin.mp3" type="audio/mpeg">
       </audio>
       <audio hidden="true" ref="audioO">
-        <source src="../sounds/owin.mp3" type="audio/mpeg">
+        <source src="../sounds/winner.mp3" type="audio/mpeg">
       </audio>
       <audio hidden="true" ref="audioDraw">
         <source src="../sounds/draw.mp3" type="audio/mpeg">
