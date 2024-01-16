@@ -57,7 +57,7 @@ export default defineComponent({
     ]
     const isBlocked = ref(false)
     const confetti = ref(false)
-    const infoText = ref('Kółko i krzyżyk')
+    const infoText = ref('X zaczyna')
     const audioX = ref<HTMLAudioElement>()
     const audioO = ref<HTMLAudioElement>()
     const audioDraw = ref<HTMLAudioElement>()
@@ -75,6 +75,8 @@ export default defineComponent({
           isBlocked.value = true
           audioO.value?.play()
           return
+        } else {
+          infoText.value = 'Kolej X'
         }
       }
     }
@@ -84,6 +86,7 @@ export default defineComponent({
         return
       }
       fieldX.value.push(id)
+      infoText.value = 'Kolej O'
       const winX = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
       console.log('line:', winX)
       const allId = fieldX.value.concat(fieldO.value)
@@ -109,7 +112,7 @@ export default defineComponent({
     const refreshGame = () => {
       fieldX.value = []
       fieldO.value = []
-      infoText.value = 'Kółko i krzyżyk'
+      infoText.value = 'X zaczyna'
       isBlocked.value = false
       confetti.value = false
     }
