@@ -42,7 +42,7 @@ export default defineComponent({
     ConfettiExplosion
   },
   setup() {
-    const infoText = ref('Kółko i krzyżyk')
+    const infoText = ref('X zaczyna')
     const fieldX = ref([] as number[])
     const fieldO = ref([] as number[])
     const winX = ref([] as boolean[])
@@ -67,7 +67,7 @@ export default defineComponent({
     const refreshGame = () => {
       fieldX.value = []
       fieldO.value = []
-      infoText.value = 'Kółko i krzyżyk'
+      infoText.value = 'X zaczyna'
       isBlocked.value = false
       confetti.value = false
       selectNumber.value = 0
@@ -105,8 +105,10 @@ export default defineComponent({
 
     const selectField = (id: number) => {
       if (selectNumber.value % 2 === 1) { // nieparzysta
+        infoText.value = 'Kolej X'
         selectFieldO(id)
       } else {
+        infoText.value = 'Kolej O'
         selectFieldX(id)
       }
       const allId = fieldX.value.concat(fieldO.value)
