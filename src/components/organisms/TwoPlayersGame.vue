@@ -58,8 +58,9 @@ export default defineComponent({
       [3, 5, 7]
     ]
     const audioX = ref<HTMLAudioElement>()
-    // const audioO = ref<HTMLAudioElement>()
-    const audioDraw = ref<HTMLAudioElement>()
+    const audioO = ref<HTMLAudioElement>()
+    // const audioDraw = ref<HTMLAudioElement>()
+    const myNumber = ref(0) 
 
 
     const refreshGame = () => {
@@ -68,17 +69,15 @@ export default defineComponent({
       infoText.value = 'Kółko i krzyżyk'
       isBlocked.value = false
       confetti.value = false
+      myNumber.value = 0
     }
 
-    const selectField = (id: number) => {
+    const selectFieldX = (id: number) => {
       if (isBlocked.value) {
         return
       }
       fieldX.value.push(id)
       const winX = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
-      console.log('line:', winX)
-      const allId = fieldX.value.concat(fieldO.value)
-      console.log(allId)
       if (winX.includes(true)) {
         infoText.value = 'X wygrywa!'
         confetti.value = true
@@ -86,10 +85,30 @@ export default defineComponent({
         audioX.value?.play()
         return
       }
-      if (allId.length === 9) {
-        infoText.value = 'Mamy remis!'
-        audioDraw.value?.play()
+    }
+
+    const selectFieldO = (id: number) => {
+      if (isBlocked.value) {
+        return
       }
+      fieldO.value.push(id)
+      const winO = lines.map(line => line.every(el => fieldO.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
+      if (winO.includes(true)) {
+        infoText.value = 'O wygrywa!'
+        confetti.value = true
+        isBlocked.value = true
+        audioO.value?.play()
+        return
+      }
+    }
+
+    const selectField = (id: number) => {
+      if (myNumber.value % 2 === 1) { // nieparzysta
+        selectFieldO(id)
+      } else {
+        selectFieldX(id)
+      }
+      myNumber.value++
     }
 
     return {

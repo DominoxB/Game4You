@@ -27,7 +27,6 @@ export default defineComponent({
   },
   emits: ['showSign'],
   setup(props, context) {
-
     const cardValue = computed(() => {
       if (props.isX) {
         return 'X'
