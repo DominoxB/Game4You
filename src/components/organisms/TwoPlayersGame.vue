@@ -6,7 +6,7 @@
         <source src="../sounds/xwin.mp3" type="audio/mpeg">
       </audio>
       <audio hidden="true" ref="audioO">
-        <source src="../sounds/owin.mp3" type="audio/mpeg">
+        <source src="../sounds/winner.mp3" type="audio/mpeg">
       </audio>
       <audio hidden="true" ref="audioDraw">
         <source src="../sounds/draw.mp3" type="audio/mpeg">
@@ -42,9 +42,11 @@ export default defineComponent({
     ConfettiExplosion
   },
   setup() {
-    const infoText = ref('Kółko i krzyżyk')
+    const infoText = ref('X zaczyna')
     const fieldX = ref([] as number[])
     const fieldO = ref([] as number[])
+    const winX = ref([] as boolean[])
+    const winO = ref([] as boolean[])
     const isBlocked = ref(false)
     const confetti = ref(false)
     const lines = [
@@ -58,41 +60,70 @@ export default defineComponent({
       [3, 5, 7]
     ]
     const audioX = ref<HTMLAudioElement>()
-    // const audioO = ref<HTMLAudioElement>()
+    const audioO = ref<HTMLAudioElement>()
     const audioDraw = ref<HTMLAudioElement>()
-
+    const selectNumber = ref(0)
 
     const refreshGame = () => {
       fieldX.value = []
       fieldO.value = []
-      infoText.value = 'Kółko i krzyżyk'
+      infoText.value = 'X zaczyna'
       isBlocked.value = false
       confetti.value = false
+      selectNumber.value = 0
     }
 
-    const selectField = (id: number) => {
+    const selectFieldX = (id: number) => {
       if (isBlocked.value) {
         return
       }
       fieldX.value.push(id)
-      const winX = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
-      console.log('line:', winX)
-      const allId = fieldX.value.concat(fieldO.value)
-      console.log(allId)
-      if (winX.includes(true)) {
+      winX.value = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
+      if (winX.value.includes(true)) {
         infoText.value = 'X wygrywa!'
         confetti.value = true
         isBlocked.value = true
         audioX.value?.play()
         return
       }
-      if (allId.length === 9) {
-        infoText.value = 'Mamy remis!'
-        audioDraw.value?.play()
+    }
+
+    const selectFieldO = (id: number) => {
+      if (isBlocked.value) {
+        return
+      }
+      fieldO.value.push(id)
+      winO.value = lines.map(line => line.every(el => fieldO.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
+      if (winO.value.includes(true)) {
+        infoText.value = 'O wygrywa!'
+        confetti.value = true
+        isBlocked.value = true
+        audioO.value?.play()
+        return
       }
     }
 
+    const selectField = (id: number) => {
+      if (selectNumber.value % 2 === 1) { // nieparzysta
+        infoText.value = 'Kolej X'
+        selectFieldO(id)
+      } else {
+        infoText.value = 'Kolej O'
+        selectFieldX(id)
+      }
+      const allId = fieldX.value.concat(fieldO.value)
+      if (allId.length === 9 && !winX.value.includes(true) && !winO.value.includes(true)) {
+        infoText.value = 'Mamy remis!'
+        audioDraw.value?.play()
+      }
+      selectNumber.value++
+      console.log(allId)
+    }
+
     return {
+      audioX, 
+      audioO,
+      audioDraw,
       infoText,
       confetti,
       fieldX,
@@ -100,7 +131,6 @@ export default defineComponent({
       refreshGame,
       selectField
     }
-
   }
 })
 </script>
