@@ -59,8 +59,8 @@ export default defineComponent({
     ]
     const audioX = ref<HTMLAudioElement>()
     const audioO = ref<HTMLAudioElement>()
-    // const audioDraw = ref<HTMLAudioElement>()
-    const myNumber = ref(0) 
+    const audioDraw = ref<HTMLAudioElement>()
+    const selectNumber = ref(0) 
 
 
     const refreshGame = () => {
@@ -69,7 +69,7 @@ export default defineComponent({
       infoText.value = 'Kółko i krzyżyk'
       isBlocked.value = false
       confetti.value = false
-      myNumber.value = 0
+      selectNumber.value = 0
     }
 
     const selectFieldX = (id: number) => {
@@ -103,15 +103,18 @@ export default defineComponent({
     }
 
     const selectField = (id: number) => {
-      if (myNumber.value % 2 === 1) { // nieparzysta
+      if (selectNumber.value % 2 === 1) { // nieparzysta
         selectFieldO(id)
       } else {
         selectFieldX(id)
       }
-      myNumber.value++
+      selectNumber.value++
     }
 
     return {
+      audioX, 
+      audioO,
+      audioDraw,
       infoText,
       confetti,
       fieldX,
