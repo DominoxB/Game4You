@@ -13,7 +13,7 @@
     </div>
     <div class="flex justify-center items-center">
       <TicTacToeInfoBoard :message="infoText"
-        :class="winX.includes(true) || winO.includes(true) ? 'animate-shake' : 'animate-none'" />
+        :class="winX.includes(true) || winO.includes(true) ? 'animate-jump' : 'animate-none'" />
     </div>
     <div class="flex justify-center">
       <RefreshArrows class="mt-8" @refresh="refreshGame" />
