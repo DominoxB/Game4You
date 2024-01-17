@@ -3,7 +3,7 @@
     <div class="flex items-center justify-center py-16 text-white">
       <h1
         class="relative w-[max-content] font-silk uppercase text-5xl before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white">
-        gramy..?
+        grasz z nami?
       </h1>
     </div>
     <div class="flex justify-center text-center text-blue-200 font-silk text-3xl space-x-24 mt-16">
