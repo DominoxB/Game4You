@@ -1,5 +1,4 @@
 <template>
-  <!-- DRAW -->
   <div class="mt-10">
     <div>
       <audio hidden="true" ref="audioX">
@@ -13,7 +12,7 @@
       </audio>
     </div>
     <div class="flex justify-center items-center">
-      <TicTacToeInfoBoard :message="infoText" />
+      <TicTacToeInfoBoard :message="infoText" :class="winO.includes(true) || winX.includes(true) ? 'animate-shake' : 'animate-none'"/>
     </div>
     <div class="flex justify-center">
       <RefreshArrows class="mt-8" @refresh="refreshGame" />
@@ -33,6 +32,7 @@ import TicTacToeInfoBoard from '@/components/atoms/TicTacToeInfoBoard.vue'
 import RefreshArrows from '@/components/atoms/RefreshArrows.vue'
 import CardItemTicTacToe from '@/components/atoms/CardItemTicTacToe.vue'
 import ConfettiExplosion from 'vue-confetti-explosion'
+
 export default defineComponent({
   name: 'TwoPlayersGame',
   components: {
@@ -49,6 +49,9 @@ export default defineComponent({
     const winO = ref([] as boolean[])
     const isBlocked = ref(false)
     const confetti = ref(false)
+    const audioX = ref<HTMLAudioElement>()
+    const audioO = ref<HTMLAudioElement>()
+    const audioDraw = ref<HTMLAudioElement>()
     const lines = [
       [1, 2, 3],
       [4, 5, 6],
@@ -59,19 +62,7 @@ export default defineComponent({
       [1, 5, 9],
       [3, 5, 7]
     ]
-    const audioX = ref<HTMLAudioElement>()
-    const audioO = ref<HTMLAudioElement>()
-    const audioDraw = ref<HTMLAudioElement>()
     const selectNumber = ref(0)
-
-    const refreshGame = () => {
-      fieldX.value = []
-      fieldO.value = []
-      infoText.value = 'X zaczyna'
-      isBlocked.value = false
-      confetti.value = false
-      selectNumber.value = 0
-    }
 
     const selectFieldX = (id: number) => {
       if (isBlocked.value) {
@@ -117,7 +108,15 @@ export default defineComponent({
         audioDraw.value?.play()
       }
       selectNumber.value++
-      console.log(allId)
+    }
+
+    const refreshGame = () => {
+      fieldX.value = []
+      fieldO.value = []
+      infoText.value = 'X zaczyna'
+      isBlocked.value = false
+      confetti.value = false
+      selectNumber.value = 0
     }
 
     return {
@@ -128,6 +127,8 @@ export default defineComponent({
       confetti,
       fieldX,
       fieldO,
+      winX,
+      winO,
       refreshGame,
       selectField
     }

@@ -4,7 +4,7 @@
     @click="clickCard">
     <span class="bg-gradient-to-r from-pink-500 to-violet-500 text-transparent bg-clip-text" v-if="isX">{{ cardValue
     }}</span>
-    <span class="bg-gradient-to-r from-blue-500 via-green-500 to-violet-500 text-transparent bg-clip-text" v-else>{{
+    <span class="bg-gradient-to-r from-blue-500 via-cyan-500 to-violet-400 text-transparent bg-clip-text" v-else>{{
       cardValue }}</span>
   </div>
 </template>

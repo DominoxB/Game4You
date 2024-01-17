@@ -12,7 +12,8 @@
       </audio>
     </div>
     <div class="flex justify-center items-center">
-      <TicTacToeInfoBoard :message="infoText" />
+      <TicTacToeInfoBoard :message="infoText"
+        :class="winX.includes(true) || winO.includes(true) ? 'animate-jump' : 'animate-none'" />
     </div>
     <div class="flex justify-center">
       <RefreshArrows class="mt-8" @refresh="refreshGame" />
@@ -33,7 +34,6 @@ import RefreshArrows from '@/components/atoms/RefreshArrows.vue'
 import ConfettiExplosion from 'vue-confetti-explosion'
 import TicTacToeInfoBoard from '@/components/atoms/TicTacToeInfoBoard.vue'
 
-
 export default defineComponent({
   name: 'SinglePlayerGame',
   components: {
@@ -45,6 +45,14 @@ export default defineComponent({
   setup() {
     const fieldX = ref([] as number[])
     const fieldO = ref([] as number[])
+    const winX = ref([] as boolean[])
+    const winO = ref([] as boolean[])
+    const isBlocked = ref(false)
+    const confetti = ref(false)
+    const infoText = ref('X zaczyna')
+    const audioX = ref<HTMLAudioElement>()
+    const audioO = ref<HTMLAudioElement>()
+    const audioDraw = ref<HTMLAudioElement>()
     const lines = [
       [1, 2, 3],
       [4, 5, 6],
@@ -55,12 +63,6 @@ export default defineComponent({
       [1, 5, 9],
       [3, 5, 7]
     ]
-    const isBlocked = ref(false)
-    const confetti = ref(false)
-    const infoText = ref('X zaczyna')
-    const audioX = ref<HTMLAudioElement>()
-    const audioO = ref<HTMLAudioElement>()
-    const audioDraw = ref<HTMLAudioElement>()
 
     const selectFieldO = () => {
       const computerChoiceId = Math.floor(Math.random() * 8) + 1
@@ -68,10 +70,9 @@ export default defineComponent({
         selectFieldO()
       } else {
         fieldO.value.push(computerChoiceId)
-        const winO = lines.map(line => line.every(el => fieldO.value.includes(el)))
-        console.log('lineO:', winO)
-        if (winO.includes(true)) {
-          infoText.value = 'O wygrywa!'
+        winO.value = lines.map(line => line.every(el => fieldO.value.includes(el)))
+        if (winO.value.includes(true)) {
+          infoText.value = 'O wygrywa!!!'
           isBlocked.value = true
           audioO.value?.play()
           return
@@ -87,12 +88,10 @@ export default defineComponent({
       }
       fieldX.value.push(id)
       infoText.value = 'Kolej O'
-      const winX = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
-      console.log('line:', winX)
+      winX.value = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
       const allId = fieldX.value.concat(fieldO.value)
-      console.log(allId)
-      if (winX.includes(true)) {
-        infoText.value = 'X wygrywa!'
+      if (winX.value.includes(true)) {
+        infoText.value = 'X wygrywa!!!'
         confetti.value = true
         isBlocked.value = true
         audioX.value?.play()
@@ -120,6 +119,8 @@ export default defineComponent({
     return {
       fieldO,
       fieldX,
+      winO,
+      winX,
       confetti,
       infoText,
       audioX,
