@@ -1,5 +1,5 @@
 <template>
-  <div class="mx-12 bg-gray-900 flex items-center">
+  <div>
     <span class="text-6xl font-rubik text-blue-100">Game4You</span>
   </div>
 </template>
