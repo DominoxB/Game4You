@@ -1,7 +1,7 @@
 <template>
-  <div class="flex justify-center items-center h-32 text-white text-lg">
+  <div class="flex justify-center items-center h-32 text-white text-sm md:text-lg">
     <div class="flex cursor-pointer uppercase">
-      <Dropdown title="Nasze Gry" :items="games" />
+      <Dropdown title="Gry" :items="games" />
     </div>
     <router-link to="/">
       <HomeLogo />
