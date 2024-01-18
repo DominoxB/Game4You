@@ -1,5 +1,5 @@
 <template>
-  <div class="absolute inset-x-0 bottom-0 text-right pr-4 text-white">
+  <div class="mt-4 md:absolute inset-x-0 bottom-0 text-right pr-4 text-white">
     <span>&copy; Domino IT 2023</span>
   </div>
 </template>
