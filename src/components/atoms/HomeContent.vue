@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="flex items-center justify-center py-16 text-white">
-      <h1
-        class="relative w-[max-content] font-silk uppercase text-5xl before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white">
+    <div class="flex items-center justify-center py-10 md:py-16 text-white">
+      <span
+        class="relative w-[max-content] font-silk text-2xl uppercase md:text-5xl before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white">
         grasz z nami?
-      </h1>
+    </span>
     </div>
-    <div class="flex justify-center text-center text-blue-200 font-silk text-3xl space-x-24 mt-16">
+    <div class="md:flex justify-center text-center text-blue-200 font-silk text-3xl space-x-24 mt-16">
       <router-link to="/MemoryGame">
         <div class="cursor-pointer w-[445px] h-[445px]" @mouseover="hoverMemory = true" @mouseleave="hoverMemory = false">
           <span>Memory</span>
@@ -18,7 +18,7 @@
         </div>
       </router-link>
       <router-link to="/TicTacToeGame">
-        <div class="cursor-pointer w-[445px] h-[445px]" @mouseover="hoverTicTacToe = true"
+        <div class="cursor-pointer w-[445px] h-[445px] mt-16 md:mt-0" @mouseover="hoverTicTacToe = true"
           @mouseleave="hoverTicTacToe = false">
           <span>Kółko i krzyżyk</span>
           <video width="445" height="445" autoplay muted v-if="hoverTicTacToe" class="mt-2">
