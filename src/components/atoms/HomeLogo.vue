@@ -1,6 +1,6 @@
 <template>
-  <div class="mx-12 bg-gray-900 flex items-center">
-    <span class="text-6xl font-rubik text-blue-100">Game4You</span>
+  <div>
+    <span class="text-5xl px-4 md:text-6xl md:px-12 text-blue-100 font-rubik">Game4You</span>
   </div>
 </template>
 

@@ -1,14 +1,14 @@
 <template>
-  <div class="flex justify-center items-center bg-gray-900 h-32 text-white font-dosis">
+  <div class="flex justify-center items-center h-32 text-white text-sm md:text-lg">
     <div class="flex cursor-pointer uppercase">
-      <Dropdown title="Nasze Gry" :items="games" />
+      <Dropdown title="Gry" :items="games" />
     </div>
     <router-link to="/">
       <HomeLogo />
     </router-link>
     <router-link to="/AboutUs">
       <div class="flex text-md cursor-pointer uppercase">
-        <span class="border-b-2 py-2 border-solid border-transparent hover:border-b-pink-900 text-md">O
+        <span class="border-b-2 py-2 border-solid border-transparent hover:border-b-pink-900">O
           nas</span>
       </div>
     </router-link>
@@ -30,7 +30,7 @@ export default defineComponent({
     const games = [
       {
         id: 1,
-        title: 'Memory Game',
+        title: 'Gra Memory',
         url: '/MemoryGame'
       },
       {
