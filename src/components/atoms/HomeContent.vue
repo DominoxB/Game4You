@@ -1,12 +1,12 @@
 <template>
   <div>
-    <div class="flex items-center justify-center py-10 md:py-16 text-white">
+    <div class="flex items-center justify-center py-10 md:pt-16 text-white">
       <span
         class="relative w-[max-content] font-silk text-3xl uppercase md:text-5xl before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white">
         grasz z nami?
     </span>
     </div>
-    <div class="md:flex justify-center text-center text-blue-200 font-silk text-3xl space-x-24 mt-16">
+    <div class="md:flex justify-center text-center text-blue-200 font-silk text-3xl space-x-24 mt-12">
       <router-link to="/MemoryGame">
         <div class="cursor-pointer w-[400px] md:w-[445px] md:h-[445px] mx-auto" @mouseover="hoverMemory = true" @mouseleave="hoverMemory = false">
           <span>Memory</span>
