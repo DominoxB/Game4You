@@ -9,7 +9,7 @@ import SinglePlayerGame from "@/components/organisms/SinglePlayerGame.vue"
 const router = createRouter({
   history: createWebHistory(),
   routes: [
-    { path: "/", component: HomePage },
+    { path: "/", component: HomePage }, // zmienic sciezke przed deployem na Game4You
     { path: "/MemoryGame", name: 'Memory', component: MemoryGame },
     { path: "/TicTacToeGame", name: 'TicTac', component: TicTacToeGame },
     { path: "/SinglePlayer", name: 'SinglePlayer', component: SinglePlayerGame },
