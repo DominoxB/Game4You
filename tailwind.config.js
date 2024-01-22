@@ -6,6 +6,7 @@ module.exports = {
       fontFamily: {
         silk: ["Silkscreen", "sans-serif"],
         rubik: ["Rubik Doodle Shadow", "sans-serif"],
+        roboto: ["Roboto", "sans-serif"]
       },
       keyframes: {
         typewriter: {
