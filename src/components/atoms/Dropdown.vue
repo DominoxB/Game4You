@@ -10,7 +10,7 @@
     </div>
     <div v-if="isOpen" class="absolute bg-gray-800 rounded-b-2xl text-center font-sans">
       <div v-for="(item, i) in items" :key="i"
-        class="p-2 border-b-2 border-solid border-transparent text-sm hover:bg-gray-700 normal-case hover:last:rounded-b-2xl hover:border-b-pink-900">
+        class="p-2 border-b-2 border-solid border-transparent font-roboto uppercase text-sm hover:bg-gray-700 hover:last:rounded-b-2xl hover:border-b-pink-900">
         <router-link :to="item.url">
           <span @click="isOpen = !isOpen">{{ item.title }}</span>
         </router-link>
