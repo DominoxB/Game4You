@@ -1,31 +1,31 @@
 <template>
   <div>
-    <div class="flex items-center justify-center py-10 md:pt-16 text-white">
+    <div class="flex items-center justify-center py-16 lg:py-10 md:pt-16 text-white">
       <span
-        class="relative w-[max-content] font-silk text-3xl uppercase md:text-5xl before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white">
+        class="relative w-[max-content] font-silk text-xl text-lime-200 sm:text-2xl uppercase md:text-3xl lg:text-5xl before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white">
         grasz z nami???
     </span>
     </div>
-    <div class="md:flex justify-center text-center text-blue-200 font-silk text-3xl space-x-24 mt-12">
+    <div class="lg:flex justify-center text-center text-blue-200 font-silk text-xl md:text-2xl lg:text-3xl space-x-24 lg:mt-12">
       <router-link to="/MemoryGame">
-        <div class="cursor-pointer w-[400px] md:w-[445px] md:h-[445px] mx-auto" @mouseover="hoverMemory = true" @mouseleave="hoverMemory = false">
+        <div class="cursor-pointer px-8 lg:px-0" @mouseover="hoverMemory = true" @mouseleave="hoverMemory = false">
           <span>Memory</span>
-          <video width="445" height="445" autoplay muted v-if="hoverMemory" class="mt-2">
+          <video width="445" height="445" autoplay muted v-if="hoverMemory" class="mt-2 mx-auto">
             <source src="../videos/memory.mp4" type="video/mp4">
           </video>
-          <img src="@/components/images/mems.png" alt="Memory Game" class="border-4 border-indigo-800 rounded mt-2"
+          <img src="@/components/images/mems.png" alt="Memory Game" class="border-4 border-indigo-800 rounded mt-2 mx-auto"
             v-else />
         </div>
       </router-link>
       <router-link to="/TicTacToeGame">
-        <div class="cursor-pointer w-[400px] md:w-[445px] md:h-[445px] mx-auto mt-16 md:mt-0" @mouseover="hoverTicTacToe = true"
+        <div class="cursor-pointer px-8 sm:px-0 mx-auto mt-12 lg:mt-0" @mouseover="hoverTicTacToe = true"
           @mouseleave="hoverTicTacToe = false">
           <span>Kółko i krzyżyk</span>
-          <video width="445" height="445" autoplay muted v-if="hoverTicTacToe" class="mt-2">
+          <video width="445" height="445" autoplay muted v-if="hoverTicTacToe" class="mt-2 mx-auto">
             <source src="../videos/tictactoe.mp4">
           </video>
           <img src="@/components/images/tictactoe.png" alt="Memory Game"
-            class="border-[3px] border-indigo-800 rounded mt-2" v-else />
+            class="border-[3px] border-indigo-800 rounded mt-2 mx-auto" v-else />
         </div>
       </router-link>
     </div>

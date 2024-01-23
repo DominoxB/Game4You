@@ -1,6 +1,6 @@
 <template>
   <div ref="dropdown">
-    <div class="flex py-2 border-b-2 justify-center w-[110px] border-solid border-transparent hover:border-b-pink-900"
+    <div class="flex py-2 border-b-2 justify-center w-[60px] md:w-[68px] border-solid border-transparent hover:border-b-pink-900"
       @click="isOpen = !isOpen">
       <span>{{ title }}</span>
       <svg viewBox="0 0 1030 638" width="10" class="flex ml-2">
@@ -8,9 +8,9 @@
         </path>
       </svg>
     </div>
-    <div v-if="isOpen" class="absolute bg-gray-800 rounded-b-2xl text-center font-sans">
+    <div v-if="isOpen" class="absolute bg-gray-800 rounded-b-2xl text-center">
       <div v-for="(item, i) in items" :key="i"
-        class="p-2 border-b-2 border-solid border-transparent font-roboto uppercase text-sm hover:bg-gray-700 hover:last:rounded-b-2xl hover:border-b-pink-900">
+        class="p-2 border-b-2 border-solid border-transparent font-roboto text-xs md:text-sm hover:bg-gray-700 hover:last:rounded-b-2xl hover:border-b-pink-900">
         <router-link :to="item.url">
           <span @click="isOpen = !isOpen">{{ item.title }}</span>
         </router-link>
