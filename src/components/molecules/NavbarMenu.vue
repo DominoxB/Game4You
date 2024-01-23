@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center md:h-32 text-white text-sm md:text-lg mt-8 md:mt-0">
-    <div class="flex cursor-pointer uppercase font-silk mr-4 md:mr-0">
+    <div class="flex cursor-pointer font-silk mr-4">
       <Dropdown title="Gry" :items="games" />
     </div>
     <router-link to="/">
@@ -35,7 +35,7 @@ export default defineComponent({
       },
       {
         id: 2,
-        title: 'Kółko i krzyżyk',
+        title: 'O i X',
         url: '/TicTacToeGame'
       },
     ]
