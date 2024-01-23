@@ -11,7 +11,7 @@
         <RefreshArrows @refresh="refreshGame" class="mt-5 md:mt-0"/>
       </div>
       <Timer class="mx-auto" />
-      <div class="grid grid-cols-4 grid-rows-4 w-[480px] h-[480px]">
+      <div class="grid grid-cols-4 grid-rows-4 w-[320px] h-[320px] md:w-[480px] md:h-[480px]">
         <div v-for="card in cards" :key="card.id">
           <CardItemMemory :card="card" @click-card="pickCard" />
         </div>

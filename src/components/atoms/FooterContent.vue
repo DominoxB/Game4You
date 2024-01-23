@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-8 relative lg:absolute inset-x-0 bottom-0 text-right pr-4 text-white">
+  <div class="pt-8 fixed lg:absolute inset-x-0 bottom-0 text-right text-white">
     <span>&copy; Domino IT {{ year }}</span>
   </div>
 </template>
