@@ -1,9 +1,9 @@
 <template>
-  <div class="bg-gray-900 min-h-screen overflow-hidden">
+  <div class="bg-gray-900 min-h-screen overflow-hidden flex flex-col">
     <NavbarMenu />
     <router-view />
     <FooterContent />
-</div>
+  </div>
 </template>
 
 <script lang="ts">

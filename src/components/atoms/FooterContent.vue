@@ -1,5 +1,5 @@
 <template>
-  <div class="pt-8 fixed lg:absolute inset-x-0 bottom-0 text-right text-white">
+  <div class="text-white text-sm md:text-basic mt-auto flex justify-end">
     <span>&copy; Domino IT {{ year }}</span>
   </div>
 </template>
@@ -10,7 +10,7 @@ export default defineComponent({
   name: 'FooterContent',
   setup() {
     const today = new Date();
-    let year = today.getFullYear();    
+    let year = today.getFullYear();
     return {
       year
     }
