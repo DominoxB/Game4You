@@ -7,6 +7,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import MemoryGameBoard from '@/components/organisms/MemoryGameBoard.vue'
+
 export default defineComponent({
   name: 'MemoryGame',
   components: {

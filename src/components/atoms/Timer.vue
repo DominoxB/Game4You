@@ -5,12 +5,10 @@
   </div>
 </template>
 
-
 <script lang="ts">
 import { defineComponent, ref, watch } from "vue"
 import { storeToRefs } from 'pinia'
 import { useMemoryStore } from '@/stores/memoryStore'
-
 
 export default defineComponent({
   name: 'MemoryTimer',

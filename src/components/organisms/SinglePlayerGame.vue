@@ -11,16 +11,16 @@
         <source src="../sounds/draw.mp3" type="audio/mpeg">
       </audio>
     </div>
-    <div class="flex justify-center items-center">
+    <div class="flex justify-center items-center mt-12 md:mt-2">
       <TicTacToeInfoBoard :message="infoText"
         :class="winX.includes(true) || winO.includes(true) ? 'animate-jump' : 'animate-none'" />
     </div>
     <div class="flex justify-center">
       <RefreshArrows class="mt-8" @refresh="refreshGame" />
-      <ConfettiExplosion :particleCount="300" v-if="confetti" :duration="2300"
+      <ConfettiExplosion :particleCount="300" v-if="confetti" :stageHeight="1000" :duration="2300"
         :colors="['#fff', '#FF00FF', '#50EBEC', '#7D0541']" />
     </div>
-    <div class="w-[450px] h-[450px] text-indigo-500 grid grid-cols-3 grid-rows-3 mx-auto font-bold text-5xl mt-8">
+    <div class="w-[300px] h-[300px] md:w-[450px] md:h-[450px] grid grid-cols-3 grid-rows-3 mx-auto mt-8">
       <CardItemTicTacToe v-for="n in 9" :key="n" :id="n" @show-sign="selectField" :is-x="fieldX.includes(n)"
         :is-o="fieldO.includes(n)" />
     </div>

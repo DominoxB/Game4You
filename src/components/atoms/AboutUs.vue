@@ -10,5 +10,4 @@
       </span>
       <p >Enjoy!</p>
     </div>
-
 </template>
