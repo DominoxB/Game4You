@@ -1,6 +1,7 @@
 <template>
   <div ref="dropdown">
-    <div class="flex py-2 border-b-2 justify-center w-[60px] md:w-[68px] border-solid border-transparent hover:border-b-pink-900"
+    <div
+      class="flex py-2 border-b-2 justify-center w-[60px] md:w-[68px] border-solid border-transparent hover:border-b-pink-900"
       @click="isOpen = !isOpen">
       <span>{{ title }}</span>
       <svg viewBox="0 0 1030 638" width="10" class="flex ml-2">
@@ -29,7 +30,6 @@ interface Item {
 }
 
 export default defineComponent({
-  
   name: 'DropdownNavbar',
   props: {
     title: {

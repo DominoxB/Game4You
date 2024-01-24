@@ -3,12 +3,12 @@
     <div v-if="showBtn" class="font-silk text-center mb-8">
       <div class="text-white text-4xl md:text-5xl p-2 bg-gradient-to-r from-sky-500 to-indigo-500">Memory Game</div>
       <button class="border p-1 text-white text-3xl my-8 hover:bg-gray-700" @click="startGame">START</button>
-      <img src="../images/memory.png" class="px-2"/>
+      <img src="../images/memory.png" class="px-2" />
     </div>
     <div v-else>
       <div class="md:flex justify-center items-center md:space-x-10">
         <MemoryInfoBoard />
-        <RefreshArrows @refresh="refreshGame" class="mt-5 md:mt-0"/>
+        <RefreshArrows @refresh="refreshGame" class="mt-5 md:mt-0" />
       </div>
       <Timer class="mx-auto" />
       <div class="grid grid-cols-4 grid-rows-4 w-[320px] h-[320px] sm:w-[400px] sm:h-[400px] md:w-[480px] md:h-[480px]">
@@ -31,7 +31,6 @@ import MemoryInfoBoard from '@/components/atoms/MemoryInfoBoard.vue'
 import Timer from '@/components/atoms/Timer.vue'
 import ModalMemory from '@/components/atoms/ModalMemory.vue'
 import RefreshArrows from '@/components/atoms/RefreshArrows.vue'
-
 
 export default defineComponent({
   name: 'MemoryGameBoard',

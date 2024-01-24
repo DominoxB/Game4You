@@ -4,17 +4,18 @@
       <span
         class="relative w-[max-content] font-silk text-xl text-lime-200 sm:text-2xl uppercase md:text-3xl lg:text-5xl before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white">
         grasz z nami???
-    </span>
+      </span>
     </div>
-    <div class="lg:flex justify-center text-center text-blue-200 font-silk text-xl md:text-2xl lg:text-3xl space-x-24 lg:mt-12">
+    <div
+      class="lg:flex justify-center text-center text-blue-200 font-silk text-xl md:text-2xl lg:text-3xl space-x-24 lg:mt-12">
       <router-link to="/MemoryGame">
         <div class="cursor-pointer px-8 lg:px-0" @mouseover="hoverMemory = true" @mouseleave="hoverMemory = false">
           <span>Memory</span>
           <video width="445" height="445" autoplay muted v-if="hoverMemory" class="mt-2 mx-auto">
             <source src="../videos/memory.mp4" type="video/mp4">
           </video>
-          <img src="@/components/images/mems.png" alt="Memory Game" class="border-4 border-indigo-800 rounded mt-2 mx-auto"
-            v-else />
+          <img src="@/components/images/mems.png" alt="Memory Game"
+            class="border-4 border-indigo-800 rounded mt-2 mx-auto" v-else />
         </div>
       </router-link>
       <router-link to="/TicTacToeGame">
@@ -34,6 +35,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+
 export default defineComponent({
   name: 'HomeContent',
   setup() {

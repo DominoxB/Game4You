@@ -1,7 +1,8 @@
 <template>
   <div
     class="flex space-x-2 justify-center border border-sky-500 px-2 py-4 md:py-6 rounded-xl text-lime-200 md:text-xl uppercase font-silk">
-    <div class="border border-indigo-500 px-1 md:px-2 py-1.5 rounded-md bg-slate-800">Mistakes: {{ mistakesCounter }}</div>
+    <div class="border border-indigo-500 px-1 md:px-2 py-1.5 rounded-md bg-slate-800">Mistakes: {{ mistakesCounter }}
+    </div>
     <div class="border border-indigo-500 px-1 md:px-2 py-1.5 rounded-md bg-slate-800">Moves: {{ movesCounter }}</div>
   </div>
 </template>

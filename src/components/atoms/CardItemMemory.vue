@@ -1,8 +1,9 @@
 <template>
-  <div class="text-white border border-indigo-300 w-20 h-20 sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] flex items-center justify-center"
+  <div
+    class="text-white border border-indigo-300 w-20 h-20 sm:w-[100px] sm:h-[100px] md:w-[120px] md:h-[120px] flex items-center justify-center"
     @click="$emit('clickCard', card)">
     <div v-if="isVisible">
-      <img :src="card.image" alt="dog" class="w-10 h-10 md:w-16 md:h-16"/>
+      <img :src="card.image" alt="dog" class="w-10 h-10 md:w-16 md:h-16" />
     </div>
   </div>
 </template>
@@ -36,4 +37,3 @@ export default defineComponent({
   }
 })
 </script>
-
