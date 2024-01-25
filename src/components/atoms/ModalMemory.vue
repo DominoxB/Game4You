@@ -14,15 +14,15 @@
           <div class="flex justify-center mb-10">
             <img src="../images/dogsy.jpg" alt="doggy" class="w-40" />
           </div>
-          <p class="text-2xl">Gramy jeszcze raz?</p>
+          <p class="text-2xl">{{ $t('again') }}</p>
           <div class="flex justify-center mt-6 md:mt-10">
             <button @click="$emit('clickYes')"
               class="border border-indigo-300 hover:bg-blue-400 rounded text-center text-lg p-2 mr-10">
-              Tak
+              {{ $t('yes')}}
             </button>
             <button @click="$emit('clickCancel')"
               class="w-[136px] border border-indigo-300 hover:bg-blue-400 rounded text-center text-lg p-1">
-              Anuluj
+              {{ $t('cancel') }}
             </button>
           </div>
         </div>

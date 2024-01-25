@@ -1,6 +1,6 @@
 <template>
   <div class="text-white text-sm md:text-lg mt-auto flex justify-end mr-2">
-    <span>&copy; Domino IT {{ year }}</span>
+    <span>&copy; {{ $t('footer') }} {{ year }}</span>
   </div>
 </template>
 
