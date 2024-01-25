@@ -12,7 +12,7 @@ const en = {
   yes: "Yes",
   cancel: "Cancel",
   again: "Are we playing again?",
-  us: "About us",
+  us: "About",
   games: "Games",
   single: "vs computer",
   multi: "2 players"
