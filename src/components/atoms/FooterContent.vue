@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white text-sm md:text-basic mt-auto flex justify-end mr-2">
+  <div class="text-white text-sm md:text-lg mt-auto flex justify-end mr-2">
     <span>&copy; Domino IT {{ year }}</span>
   </div>
 </template>
