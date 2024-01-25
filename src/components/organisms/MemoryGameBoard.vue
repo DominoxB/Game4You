@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="showBtn" class="font-silk text-center mb-8">
-      <div class="text-white text-4xl md:text-5xl p-2 bg-gradient-to-r from-sky-500 to-indigo-500">Memory Game</div>
+      <div class="text-white text-4xl md:text-5xl p-2 bg-gradient-to-r from-sky-500 to-indigo-500">{{  $t('memory') }}</div>
       <button class="border p-1 text-white text-3xl my-8 hover:bg-gray-700" @click="startGame">START</button>
       <img src="../images/memory.png" class="px-2" />
     </div>
