@@ -4,8 +4,8 @@ import pl from "./pl"
 
 const i18n = createI18n({
   warnHtmlInMessage: 'off',
-  locale: "en",
-  fallbackLocale: "pl",
+  locale: "pl",
+  fallbackLocale: "en",
   messages: { en, pl }
 })
 
