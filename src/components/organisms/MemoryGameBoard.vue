@@ -31,6 +31,7 @@ import MemoryInfoBoard from '@/components/atoms/MemoryInfoBoard.vue'
 import Timer from '@/components/atoms/Timer.vue'
 import ModalMemory from '@/components/atoms/ModalMemory.vue'
 import RefreshArrows from '@/components/atoms/RefreshArrows.vue'
+import { onMounted } from 'vue'
 
 export default defineComponent({
   name: 'MemoryGameBoard',
@@ -108,6 +109,11 @@ export default defineComponent({
       router.push('/')
       showModal.value = false
     }
+
+    onMounted(() => {
+      mistakesCounter.value = 0
+      movesCounter.value = 0
+    })
     return {
       cards,
       showBtn,
