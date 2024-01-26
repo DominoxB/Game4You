@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import MemoryGameBoard from '@/components/organisms/MemoryGameBoard.vue'
 
 export default defineComponent({
@@ -13,5 +13,10 @@ export default defineComponent({
   components: {
     MemoryGameBoard
   },
+  setup() {
+    onMounted(() => {
+      window.scrollTo(0, 0)
+    })
+  }
 })
 </script>

@@ -5,13 +5,18 @@
 </template>
 
 <script lang="ts">
-import { defineComponent } from 'vue'
+import { defineComponent, onMounted } from 'vue'
 import TicTacToeGameBoard from '@/components/organisms/TicTacToeGameBoard.vue'
 
 export default defineComponent({
   name: 'TicTacToeGame',
   components: {
     TicTacToeGameBoard
+  },
+  setup() {
+    onMounted(() => {
+      window.scrollTo(0, 0)
+    })
   }
 })
 </script>
