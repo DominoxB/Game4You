@@ -11,7 +11,7 @@
       <router-link to="/MemoryGame">
         <div class="cursor-pointer px-8 lg:px-0" @mouseover="hoverMemory = true" @mouseleave="hoverMemory = false">
           <span>{{ $t('memory') }}</span>
-          <video width="445" height="445" autoplay muted v-if="hoverMemory" class="mt-2 mx-auto">
+          <video width="445" height="445" autoplay muted v-if="hoverMemory && width >= 768" class="mt-2 mx-auto">
             <source src="../videos/memory.mp4" type="video/mp4">
           </video>
           <img src="@/components/images/mems.png" alt="Memory Game"
@@ -22,7 +22,7 @@
         <div class="cursor-pointer px-8 sm:px-0 mx-auto mt-12 lg:mt-0" @mouseover="hoverTicTacToe = true"
           @mouseleave="hoverTicTacToe = false">
           <span>{{ $t('tictac') }}</span>
-          <video width="445" height="445" autoplay muted v-if="hoverTicTacToe" class="mt-2 mx-auto">
+          <video width="445" height="445" autoplay muted v-if="hoverTicTacToe && width >= 768" class="mt-2 mx-auto">
             <source src="../videos/tictactoe.mp4">
           </video>
           <img src="@/components/images/tictactoe.png" alt="Memory Game"
@@ -41,9 +41,12 @@ export default defineComponent({
   setup() {
     const hoverMemory = ref(false)
     const hoverTicTacToe = ref(false)
+    const width = ref(window.innerWidth)
+
     return {
       hoverMemory,
-      hoverTicTacToe
+      hoverTicTacToe,
+      width
     }
   }
 })
