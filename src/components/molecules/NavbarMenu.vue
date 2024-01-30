@@ -1,6 +1,6 @@
 <template>
   <div class="flex justify-center items-center md:h-32 text-white text-sm md:text-lg mt-8 md:mt-0">
-    <div class="flex cursor-pointer font-silk">
+    <div class="flex cursor-pointer font-silk mr-2">
       <Dropdown :title="$t('games')" :items="games" />
     </div>
     <router-link to="/">
