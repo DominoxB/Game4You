@@ -18,7 +18,7 @@
           <div class="flex justify-center mt-6 md:mt-10">
             <button @click="$emit('clickYes')"
               class="border border-indigo-300 hover:bg-blue-400 rounded text-center text-lg p-2 mr-10">
-              {{ $t('yes')}}
+              {{ $t('yes') }}
             </button>
             <button @click="$emit('clickCancel')"
               class="w-[136px] border border-indigo-300 hover:bg-blue-400 rounded text-center text-lg p-1">
