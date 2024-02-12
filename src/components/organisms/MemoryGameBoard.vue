@@ -107,7 +107,7 @@ export default defineComponent({
       selectedCards.value = []
       movesCounter.value = 0
       mistakesCounter.value = 0
-      router.push('/')
+      router.push('/Game4You')
       showModal.value = false
     }
 
