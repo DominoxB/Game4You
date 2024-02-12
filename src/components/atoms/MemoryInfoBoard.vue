@@ -4,7 +4,8 @@
     <div class="border border-indigo-500 w-28 md:w-[180px] text-center px-1 md:px-4 py-1.5 rounded-md bg-slate-800">{{
       $t('mistakes') }}: {{ mistakesCounter }}
     </div>
-    <div class="border border-indigo-500 w-28 md:w-[160px] text-center px-1 md:px-4 py-1.5 rounded-md bg-slate-800">{{ $t('moves')
+    <div class="border border-indigo-500 w-28 md:w-[160px] text-center px-1 md:px-4 py-1.5 rounded-md bg-slate-800">{{
+      $t('moves')
     }}: {{ movesCounter }}</div>
   </div>
 </template>
