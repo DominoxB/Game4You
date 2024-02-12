@@ -3,7 +3,7 @@
     <div class="flex cursor-pointer font-silk mr-2">
       <Dropdown :title="$t('games')" :items="games" />
     </div>
-    <router-link to="/">
+    <router-link to="/Game4You">
       <HomeLogo />
     </router-link>
     <router-link to="/AboutUs">
