@@ -10,10 +10,12 @@
       </svg>
     </div>
     <div v-if="isOpen" class="absolute bg-gray-800 rounded-b-2xl text-center">
-      <div v-for="(item, i) in items" :key="i"
-        class="py-2 px-4 border-b-2 border-solid border-transparent font-roboto text-xs md:text-sm hover:bg-gray-700 hover:last:rounded-b-2xl hover:border-b-pink-900">
+      <div v-for="(item, i) in items" :key="i">
         <router-link :to="item.url">
-          <span @click="isOpen = !isOpen">{{ item.title }}</span>
+          <div @click="isOpen = !isOpen"
+            class="py-2 px-4 border-b-2 border-solid border-transparent font-roboto text-xs md:text-sm hover:bg-gray-700 hover:last:rounded-b-2xl hover:border-b-pink-900">
+            <span>{{ item.title }}</span>
+          </div>
         </router-link>
       </div>
     </div>
