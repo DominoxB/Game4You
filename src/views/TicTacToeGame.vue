@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center items-center mt-20">
+  <div class="flex justify-center items-center mt-12 md:mt-4">
     <TicTacToeGameBoard />
   </div>
 </template>

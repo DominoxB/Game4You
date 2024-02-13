@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-10">
+  <div>
     <div>
       <audio hidden="true" ref="audioX">
         <source src="../sounds/xwin.mp3" type="audio/mpeg">
@@ -11,7 +11,7 @@
         <source src="../sounds/draw.mp3" type="audio/mpeg">
       </audio>
     </div>
-    <div class="flex justify-center items-center mt-12 md:mt-2">
+    <div class="flex justify-center items-center mt-12 md:mt-0">
       <TicTacToeInfoBoard :message="infoText"
         :class="winX.includes(true) || winO.includes(true) ? 'animate-jump' : 'animate-none'" />
     </div>
