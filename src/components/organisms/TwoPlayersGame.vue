@@ -70,7 +70,7 @@ export default defineComponent({
         return
       }
       fieldX.value.push(id)
-      winX.value = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
+      winX.value = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x ma 3 znaki w linii, jesli tak-przerywam gre
       if (winX.value.includes(true)) {
         infoText.value = 'X wygrywa!'
         confetti.value = true
@@ -85,7 +85,7 @@ export default defineComponent({
         return
       }
       fieldO.value.push(id)
-      winO.value = lines.map(line => line.every(el => fieldO.value.includes(el))) // sprawdzam, czy x lub o ma 3 znaki w linii, jesli tak-przerywam gre
+      winO.value = lines.map(line => line.every(el => fieldO.value.includes(el))) // sprawdzam, czy o ma 3 znaki w linii, jesli tak-przerywam gre
       if (winO.value.includes(true)) {
         infoText.value = 'O wygrywa!'
         confetti.value = true
@@ -96,7 +96,7 @@ export default defineComponent({
     }
 
     const selectField = (id: number) => {
-      if (selectNumber.value % 2 === 1) { // nieparzysta
+      if (selectNumber.value % 2 === 1) {
         infoText.value = 'Kolej X'
         selectFieldO(id)
       } else {

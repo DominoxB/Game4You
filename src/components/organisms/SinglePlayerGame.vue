@@ -66,7 +66,7 @@ export default defineComponent({
 
     const selectFieldO = () => {
       const computerChoiceId = Math.floor(Math.random() * 8) + 1
-      if (fieldX.value.includes(computerChoiceId) || fieldO.value.includes(computerChoiceId)) {   // wybór losowy kratki, jesli jest zajeta-szukaj dalej
+      if (fieldX.value.includes(computerChoiceId) || fieldO.value.includes(computerChoiceId)) {   // wybór losowy pola, jesli jest zajety-szukaj dalej
         selectFieldO()
       } else {
         fieldO.value.push(computerChoiceId)
