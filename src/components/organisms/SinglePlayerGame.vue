@@ -11,7 +11,7 @@
         <source src="../sounds/draw.mp3" type="audio/mpeg">
       </audio>
     </div>
-    <div class="flex justify-center items-center mt-12 md:mt-0">
+    <div class="flex justify-center items-center mt-12 md:mt-0 z-10">
       <TicTacToeInfoBoard :message="infoText"
         :class="winX.includes(true) || winO.includes(true) ? 'animate-jump' : 'animate-none'" />
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div ref="dropdown">
+  <div ref="dropdown" class="z-20">
     <div
       class="relative flex py-2 border-b-2 justify-center border-solid border-transparent hover:border-b-pink-900 w-[76px] md:w-[84px]"
       @click="isOpen = !isOpen">
