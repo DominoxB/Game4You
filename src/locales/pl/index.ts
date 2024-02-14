@@ -17,8 +17,9 @@ const pl = {
   multi: "2 graczy",
   xStarts: "X zaczyna",
   oWins: "O wygrywa!!!",
-  xWins: "X wins!!!",
+  xWins: "X wygrywa!!!",
   xTurn: "Kolej X",
+  oTurn: "Kolej O",
   draw: "Mamy remis!"
 }
 
