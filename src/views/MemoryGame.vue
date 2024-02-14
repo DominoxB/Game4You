@@ -1,5 +1,5 @@
 <template>
-  <div class="flex justify-center mt-12 md:mt-4">
+  <div class="flex justify-center mt-12 md:mt-4 max-h-screen overflow-hidden">
     <MemoryGameBoard />
   </div>
 </template>
