@@ -6,7 +6,8 @@ const i18n = createI18n({
   warnHtmlInMessage: 'off',
   locale: "pl",
   fallbackLocale: "en",
-  messages: { en, pl }
+  messages: { en, pl },
+  legacy: false
 })
 
 export default i18n

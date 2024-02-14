@@ -14,7 +14,12 @@ const pl = {
   us: "O nas",
   games: "Gry",
   single: "vs komputer",
-  multi: "2 graczy"
+  multi: "2 graczy",
+  xStarts: "X zaczyna",
+  oWins: "O wygrywa!!!",
+  xWins: "X wins!!!",
+  xTurn: "Kolej X",
+  draw: "Mamy remis!"
 }
 
 export default pl

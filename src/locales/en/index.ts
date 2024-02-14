@@ -14,7 +14,13 @@ const en = {
   us: "About",
   games: "Games",
   single: "vs computer",
-  multi: "2 players"
+  multi: "2 players",
+  xStarts: "X starts",
+  oWins: "O wins!!!",
+  xWins: "X wins!!!",
+  xTurn: "X's turn",
+  oTurn: "O's turn",
+  draw: "It's a draw!"
 }
 
 export default en
