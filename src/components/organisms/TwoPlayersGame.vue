@@ -29,6 +29,7 @@
 
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
+import { useI18n } from "vue-i18n"
 import TicTacToeInfoBoard from '@/components/atoms/TicTacToeInfoBoard.vue'
 import RefreshArrows from '@/components/atoms/RefreshArrows.vue'
 import CardItemTicTacToe from '@/components/atoms/CardItemTicTacToe.vue'
@@ -43,7 +44,8 @@ export default defineComponent({
     ConfettiExplosion
   },
   setup() {
-    const infoText = ref('X zaczyna')
+    const { t } = useI18n()
+    const infoText = ref(t('xStarts'))
     const fieldX = ref([] as number[])
     const fieldO = ref([] as number[])
     const winX = ref([] as boolean[])
@@ -72,7 +74,7 @@ export default defineComponent({
       fieldX.value.push(id)
       winX.value = lines.map(line => line.every(el => fieldX.value.includes(el))) // sprawdzam, czy x ma 3 znaki w linii, jesli tak-przerywam gre
       if (winX.value.includes(true)) {
-        infoText.value = 'X wygrywa!'
+        infoText.value = t('xWins')
         confetti.value = true
         isBlocked.value = true
         audioX.value?.play()
@@ -87,7 +89,7 @@ export default defineComponent({
       fieldO.value.push(id)
       winO.value = lines.map(line => line.every(el => fieldO.value.includes(el))) // sprawdzam, czy o ma 3 znaki w linii, jesli tak-przerywam gre
       if (winO.value.includes(true)) {
-        infoText.value = 'O wygrywa!'
+        infoText.value = t('oWins')
         confetti.value = true
         isBlocked.value = true
         audioO.value?.play()
@@ -97,15 +99,15 @@ export default defineComponent({
 
     const selectField = (id: number) => {
       if (selectNumber.value % 2 === 1) {
-        infoText.value = 'Kolej X'
+        infoText.value = t('xTurn')
         selectFieldO(id)
       } else {
-        infoText.value = 'Kolej O'
+        infoText.value = t('oTurn')
         selectFieldX(id)
       }
       const allId = fieldX.value.concat(fieldO.value)
       if (allId.length === 9 && !winX.value.includes(true) && !winO.value.includes(true)) {
-        infoText.value = 'Mamy remis!'
+        infoText.value = t('draw')
         audioDraw.value?.play()
       }
       selectNumber.value++
@@ -114,7 +116,7 @@ export default defineComponent({
     const refreshGame = () => {
       fieldX.value = []
       fieldO.value = []
-      infoText.value = 'X zaczyna'
+      infoText.value = t('xStarts')
       isBlocked.value = false
       confetti.value = false
       selectNumber.value = 0
