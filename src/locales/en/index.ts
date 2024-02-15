@@ -3,7 +3,7 @@ const en = {
   hangman1: "Check out ours",
   hangman2: "Hangman online!",
   footer: "Domino IT",
-  question: "Will you play with us?",
+  question: "Shall we play???",
   memory: "Memory",
   tictac: "Tic-Tac-Toe",
   mistakes: "Mistakes",

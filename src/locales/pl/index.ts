@@ -3,7 +3,7 @@ const pl = {
   hangman1: "Sprawdź także naszego",
   hangman2: "Wisielca online!",
   footer: "Domino IT",
-  question: "Grasz z nami?",
+  question: "Grasz z nami???",
   memory: "Memory",
   tictac: "Kółko i krzyżyk",
   mistakes: "Błędy",
