@@ -2,7 +2,7 @@
   <div class="mb-4">
     <div class="flex items-center justify-center text-white py-10 md:py-6">
       <span
-        class="relative w-[max-content] font-silk text-2xl text-lime-200 sm:text-2xl uppercase before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white md:text-3xl lg:text-4xl">
+        class="relative w-[max-content] font-silk text-xl text-lime-200 sm:text-2xl uppercase before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white md:text-3xl lg:text-4xl">
         {{ $t('question') }}
       </span>
     </div>
