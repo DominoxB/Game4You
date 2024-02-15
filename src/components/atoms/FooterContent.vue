@@ -1,5 +1,5 @@
 <template>
-  <div class="text-white text-sm md:text-lg mt-auto flex justify-end mr-2">
+  <div class="text-white text-sm mt-auto flex justify-end mr-2 md:text-lg">
     <span>&copy; {{ $t('footer') }} {{ year }}</span>
   </div>
 </template>

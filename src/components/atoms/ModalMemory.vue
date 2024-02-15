@@ -10,7 +10,7 @@
       enter-from-class="opacity-0">
       <div class="relative z-50 transition ease-in-out delay-200">
         <div
-          class="bg-gray-900 fixed text-white font-silk left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-indigo-300 px-12 py-6 md:px-24 md:py-10 text-center">
+          class="bg-gray-900 fixed text-white font-silk left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 border-2 border-indigo-300 text-center px-12 py-6 md:px-24 md:py-10">
           <div class="flex justify-center mb-10">
             <img src="../images/dogsy.jpg" alt="doggy" class="w-40" />
           </div>

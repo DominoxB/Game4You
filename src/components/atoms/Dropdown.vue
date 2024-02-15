@@ -13,7 +13,7 @@
       <div v-for="(item, i) in items" :key="i">
         <router-link :to="item.url">
           <div @click="isOpen = !isOpen"
-            class="py-2 px-4 border-b-2 border-solid border-transparent font-roboto text-xs md:text-sm hover:bg-gray-700 hover:last:rounded-b-2xl hover:border-b-pink-900">
+            class="py-2 px-4 border-b-2 border-solid border-transparent hover:bg-gray-700 hover:last:rounded-b-2xl hover:border-b-pink-900 font-roboto text-xs md:text-sm">
             <span>{{ item.title }}</span>
           </div>
         </router-link>

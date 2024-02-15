@@ -1,13 +1,13 @@
 <template>
   <div>
     <div v-if="showBtn" class="font-silk text-center">
-      <div class="text-white text-4xl md:text-5xl p-2 bg-gradient-to-r from-sky-500 to-indigo-500">{{ $t('memory') }}
+      <div class="text-white text-4xl p-2 bg-gradient-to-r from-sky-500 to-indigo-500 md:text-5xl">{{ $t('memory') }}
       </div>
       <button class="border p-1 text-white text-3xl my-8 hover:bg-gray-700" @click="startGame">START</button>
       <img src="../images/memory.png" class="px-10" />
     </div>
     <div v-else>
-      <div class="md:flex justify-center items-center md:space-x-10">
+      <div class="justify-center items-center md:flex md:space-x-10">
         <MemoryInfoBoard />
         <RefreshArrows @refresh="refreshGame" class="mt-5 md:mt-0" />
       </div>

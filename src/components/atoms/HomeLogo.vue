@@ -1,6 +1,6 @@
 <template>
   <div>
-    <span class="text-3xl sm:text-5xl lg:text-6xl text-blue-100 font-rubik">Game4You</span>
+    <span class="text-3xl sm:text-5xl text-blue-100 font-rubik lg:text-6xl">Game4You</span>
   </div>
 </template>
 

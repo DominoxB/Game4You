@@ -1,13 +1,13 @@
 <template>
   <div class="mb-4">
-    <div class="flex items-center justify-center py-10 md:py-6 text-white">
+    <div class="flex items-center justify-center text-white py-10 md:py-6">
       <span
-        class="relative w-[max-content] font-silk text-2xl text-lime-200 sm:text-2xl uppercase md:text-3xl lg:text-4xl before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white">
+        class="relative w-[max-content] font-silk text-2xl text-lime-200 sm:text-2xl uppercase before:absolute before:inset-0 before:animate-typewriter before:bg-gray-900 after:absolute after:inset-0 after:w-[0.125em] after:animate-caret after:bg-white md:text-3xl lg:text-4xl">
         {{ $t('question') }}
       </span>
     </div>
     <div
-      class="lg:flex justify-center text-center text-blue-200 font-silk text-xl md:text-2xl lg:text-3xl space-x-24 lg:mt-12">
+      class="justify-center text-center text-blue-200 space-x-24 font-silk text-xl md:text-2xl lg:text-3xl lg:flex lg:mt-12">
       <router-link to="/MemoryGame">
         <div class="cursor-pointer px-8 lg:px-0" @mouseover="hoverMemory = true" @mouseleave="hoverMemory = false">
           <span>{{ $t('memory') }}</span>

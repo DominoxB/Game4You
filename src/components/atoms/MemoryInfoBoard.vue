@@ -1,10 +1,10 @@
 <template>
   <div
-    class="w-4/5 mx-auto flex space-x-2 justify-center border border-sky-500 md:px-4 py-4 md:py-6 rounded-xl text-lime-200 md:text-xl uppercase font-roboto">
-    <div class="border border-indigo-500 w-28 md:w-[180px] text-center px-1 md:px-4 py-1.5 rounded-md bg-slate-800">{{
+    class="w-4/5 mx-auto flex space-x-2 justify-center border border-sky-500 uppercase font-roboto rounded-xl text-lime-200 md:px-4 py-4 md:py-6 md:text-xl ">
+    <div class="border border-indigo-500 w-28 py-1.5 rounded-md bg-slate-800 text-center px-1 md:w-[180px] md:px-4">{{
       $t('mistakes') }}: {{ mistakesCounter }}
     </div>
-    <div class="border border-indigo-500 w-28 md:w-[160px] text-center px-1 md:px-4 py-1.5 rounded-md bg-slate-800">{{
+    <div class="border border-indigo-500 w-28 py-1.5 rounded-md bg-slate-800 text-center px-1 md:w-[160px] md:px-4 ">{{
       $t('moves')
     }}: {{ movesCounter }}</div>
   </div>
